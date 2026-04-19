@@ -134,12 +134,6 @@ export default async function HeroSection() {
                 />
               </svg>
             </Link>
-            <Link
-              href="/flow"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/15 text-white font-bold text-lg rounded-xl hover:bg-white/25 transition-colors border border-white/30 backdrop-blur-sm"
-            >
-              {t("registerButton")}
-            </Link>
           </div>
         </div>
       </div>

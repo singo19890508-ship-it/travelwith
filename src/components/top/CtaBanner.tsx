@@ -20,12 +20,6 @@ export default async function CtaBanner() {
           >
             {t("applyButton")}
           </Link>
-          <Link
-            href="/faq"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white/15 text-white font-bold text-base rounded-xl hover:bg-white/25 transition-colors border border-white/30 backdrop-blur-sm"
-          >
-            {t("registerButton")}
-          </Link>
         </div>
       </div>
     </section>

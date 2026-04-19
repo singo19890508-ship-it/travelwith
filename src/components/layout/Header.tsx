@@ -13,7 +13,6 @@ export default async function Header() {
     { href: "/join", label: t("join") },
     { href: "/safety", label: t("safety") },
     { href: "/faq", label: t("faq") },
-    { href: "/contact", label: t("contact") },
   ];
 
   return (
@@ -45,7 +44,7 @@ export default async function Header() {
               href="/contact"
               className="hidden md:inline-flex px-4 py-2 text-sm font-bold text-white bg-satsuma-600 rounded-lg hover:bg-satsuma-700 transition-colors whitespace-nowrap"
             >
-              {t("consultButton")}
+              まず相談する（無料）
             </Link>
             {/* Mobile hamburger */}
             <MobileMenu />

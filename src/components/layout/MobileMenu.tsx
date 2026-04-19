@@ -15,7 +15,6 @@ export default function MobileMenu() {
     { href: "/join", label: t("join") },
     { href: "/safety", label: t("safety") },
     { href: "/faq", label: t("faq") },
-    { href: "/contact", label: t("contact") },
   ];
 
   return (
@@ -27,12 +26,32 @@ export default function MobileMenu() {
         aria-label={open ? t("menuClose") : t("menuOpen")}
       >
         {open ? (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         ) : (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         )}
       </button>
@@ -54,9 +73,9 @@ export default function MobileMenu() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="block w-full text-center px-6 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors"
+                className="block w-full text-center px-6 py-3 bg-satsuma-600 text-white font-bold rounded-xl hover:bg-satsuma-700 transition-colors"
               >
-                {t("consultButton")}
+                まず相談する（無料）
               </Link>
             </div>
           </nav>
