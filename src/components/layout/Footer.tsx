@@ -10,7 +10,9 @@ export default async function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-1">
-            <h3 className="text-white text-lg font-bold mb-3">TravelWith</h3>
+            <h3 className="text-white text-lg font-bold mb-3 tracking-wide">
+              FUKU-TABI
+            </h3>
             <p className="text-sm text-gray-400 leading-relaxed">
               {t("description")}
             </p>
@@ -20,32 +22,50 @@ export default async function Footer() {
             <h4 className="text-white font-semibold mb-3">{t("linksTitle")}</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/flow" className="hover:text-white transition-colors">
+                <Link
+                  href="/flow"
+                  className="hover:text-white transition-colors"
+                >
                   {h("flow")}
                 </Link>
               </li>
               <li>
-                <Link href="/caregivers" className="hover:text-white transition-colors">
+                <Link
+                  href="/caregivers"
+                  className="hover:text-white transition-colors"
+                >
                   {h("caregivers")}
                 </Link>
               </li>
               <li>
-                <Link href="/safety" className="hover:text-white transition-colors">
+                <Link
+                  href="/safety"
+                  className="hover:text-white transition-colors"
+                >
                   {h("safety")}
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-white transition-colors">
+                <Link
+                  href="/faq"
+                  className="hover:text-white transition-colors"
+                >
                   {h("faq")}
                 </Link>
               </li>
               <li>
-                <Link href="/join" className="hover:text-white transition-colors">
+                <Link
+                  href="/join"
+                  className="hover:text-white transition-colors"
+                >
                   {h("join")}
                 </Link>
               </li>
               <li>
-                <Link href="/training" className="hover:text-white transition-colors">
+                <Link
+                  href="/training"
+                  className="hover:text-white transition-colors"
+                >
                   {t("training")}
                 </Link>
               </li>
@@ -63,22 +83,34 @@ export default async function Footer() {
             </Link>
             <div className="mt-2 space-y-1 text-xs text-gray-500">
               <div>
-                <Link href="/about" className="hover:text-gray-300 transition-colors">
+                <Link
+                  href="/about"
+                  className="hover:text-gray-300 transition-colors"
+                >
                   {t("about")}
                 </Link>
               </div>
               <div>
-                <Link href="/terms" className="hover:text-gray-300 transition-colors">
+                <Link
+                  href="/terms"
+                  className="hover:text-gray-300 transition-colors"
+                >
                   {t("terms")}
                 </Link>
               </div>
               <div>
-                <Link href="/privacy" className="hover:text-gray-300 transition-colors">
+                <Link
+                  href="/privacy"
+                  className="hover:text-gray-300 transition-colors"
+                >
                   {t("privacy")}
                 </Link>
               </div>
               <div>
-                <Link href="/commerce" className="hover:text-gray-300 transition-colors">
+                <Link
+                  href="/commerce"
+                  className="hover:text-gray-300 transition-colors"
+                >
                   {t("commerce")}
                 </Link>
               </div>

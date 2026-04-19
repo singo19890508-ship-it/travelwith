@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "旅行者申込 | TravelWith",
+  title: "旅行のご相談・申込 | FUKU-TABI",
   description: "介助サポートが必要な旅行者の申込フォームです。旅行先・日程・必要な介助内容をご記入ください。",
 };
 

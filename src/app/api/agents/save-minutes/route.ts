@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { appendMeetingMinutes } from "@/lib/google-docs";
+import { appendMeetingMinutes, getMeetingDocUrl } from "@/lib/google-docs";
 
 export async function POST(req: NextRequest) {
   try {
@@ -21,7 +21,8 @@ export async function POST(req: NextRequest) {
       timestamp: new Date().toISOString(),
     });
 
-    return NextResponse.json({ success: true });
+    const url = getMeetingDocUrl();
+    return NextResponse.json({ success: true, url });
   } catch (error) {
     console.error("Save minutes error:", error);
     return NextResponse.json(

@@ -58,7 +58,7 @@ function LoginForm() {
               />
             </svg>
           </div>
-          <h1 className="text-white text-2xl font-bold">TravelWith</h1>
+          <h1 className="text-white text-2xl font-bold">FUKU-TABI</h1>
           <p className="text-gray-500 text-sm mt-1">管理画面</p>
         </div>
 

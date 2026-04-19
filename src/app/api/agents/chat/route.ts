@@ -1,5 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { AGENTS, AGENT_MAP, getOrchestratorPrompt } from "@/lib/agents";
 import {
   getRelevantMemories,
@@ -7,11 +9,23 @@ import {
   saveMemory,
 } from "@/lib/agent-memory";
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+function getProjectBrief(): string {
+  try {
+    const briefPath = join(process.cwd(), "src/data/project_brief.md");
+    return readFileSync(briefPath, "utf-8");
+  } catch {
+    return "";
+  }
+}
 
 const MODEL = "claude-sonnet-4-6";
+
+function getClient() {
+  // APP_ANTHROPIC_KEY を優先（ANTHROPIC_API_KEY はClaude Code環境が上書きするため）
+  const apiKey = process.env.APP_ANTHROPIC_KEY || process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) throw new Error("APP_ANTHROPIC_KEY not set in .env.local");
+  return new Anthropic({ apiKey, baseURL: "https://api.anthropic.com" });
+}
 
 export interface ChatMessage {
   agentId: string;
@@ -24,6 +38,8 @@ async function callAgent(
   agentId: string,
   userMessage: string,
   history: ChatMessage[],
+  projectContext?: string,
+  memoryContext?: string,
 ): Promise<string> {
   const agent = AGENT_MAP[agentId];
   if (!agent) return "";
@@ -32,15 +48,21 @@ async function callAgent(
     .map((m) => `${m.agentName}（${m.role}）：${m.content}`)
     .join("\n");
 
+  const memoryNote = memoryContext ? `\n${memoryContext}\n` : "";
+
   const userContent =
     history.length > 0
-      ? `会議のテーマ：「${userMessage}」\n\nここまでの発言：\n${contextMessages}\n\nあなたの意見を述べてください。`
-      : `議題：「${userMessage}」\n\nあなたの意見を述べてください。`;
+      ? `${memoryNote}会議のテーマ：「${userMessage}」\n\nここまでの発言：\n${contextMessages}\n\nあなたの意見を述べてください。`
+      : `${memoryNote}議題：「${userMessage}」\n\nあなたの意見を述べてください。`;
 
-  const response = await client.messages.create({
+  const systemPrompt = projectContext
+    ? `${projectContext}\n\n${agent.systemPrompt}`
+    : agent.systemPrompt;
+
+  const response = await getClient().messages.create({
     model: MODEL,
-    max_tokens: 400,
-    system: agent.systemPrompt,
+    max_tokens: 900,
+    system: systemPrompt,
     messages: [{ role: "user", content: userContent }],
   });
 
@@ -51,6 +73,12 @@ async function callAgent(
 async function runTaskMode(userMessage: string): Promise<ChatMessage[]> {
   const messages: ChatMessage[] = [];
 
+  // プロジェクト共有情報を取得
+  const projectBrief = getProjectBrief();
+  const projectContext = projectBrief
+    ? `## 📋 プロジェクト共有情報（常時参照）\n${projectBrief}`
+    : "";
+
   // 過去の記憶を取得
   const memories = getRelevantMemories(userMessage, 5);
   const memoryContext = formatMemoriesForPrompt(memories);
@@ -59,9 +87,10 @@ async function runTaskMode(userMessage: string): Promise<ChatMessage[]> {
   const agentList = AGENTS.map((a) => `${a.id}: ${a.name}（${a.role}）`).join(
     "\n",
   );
-  const orchResponse = await client.messages.create({
+  const orchResponse = await getClient().messages.create({
     model: MODEL,
-    max_tokens: 400,
+    max_tokens: 200,
+    system: projectContext || undefined,
     messages: [
       {
         role: "user",
@@ -93,7 +122,7 @@ async function runTaskMode(userMessage: string): Promise<ChatMessage[]> {
   if (briefing) {
     messages.push({
       agentId: "shinohara",
-      agentName: "篠原 賢一",
+      agentName: "琥珀",
       role: "参謀",
       content: briefing,
     });
@@ -103,7 +132,13 @@ async function runTaskMode(userMessage: string): Promise<ChatMessage[]> {
   for (const agentId of selectedAgents.slice(0, 4)) {
     const agent = AGENT_MAP[agentId];
     if (!agent) continue;
-    const content = await callAgent(agentId, userMessage, messages);
+    const content = await callAgent(
+      agentId,
+      userMessage,
+      messages,
+      projectContext,
+      memoryContext,
+    );
     if (content) {
       messages.push({
         agentId,
@@ -132,6 +167,12 @@ async function runMeetingMode(
 ): Promise<ChatMessage[]> {
   const messages: ChatMessage[] = [];
 
+  // プロジェクト共有情報を取得
+  const projectBrief = getProjectBrief();
+  const projectContext = projectBrief
+    ? `## 📋 プロジェクト共有情報（常時参照）\n${projectBrief}`
+    : "";
+
   // 過去の記憶を取得
   const memories = getRelevantMemories(topic, 5);
   const memoryContext = formatMemoriesForPrompt(memories);
@@ -142,10 +183,14 @@ async function runMeetingMode(
     ? `議題：「${topic}」${memoryContext}\n\n議題を設定し、会議の方向性を示してください。`
     : `議題：「${topic}」\n\nあなたの意見を述べてください。`;
 
-  const openingResponse = await client.messages.create({
+  const openingSystemPrompt = projectContext
+    ? `${projectContext}\n\n${shinohara.systemPrompt}`
+    : shinohara.systemPrompt;
+
+  const openingResponse = await getClient().messages.create({
     model: MODEL,
-    max_tokens: 400,
-    system: shinohara.systemPrompt,
+    max_tokens: 900,
+    system: openingSystemPrompt,
     messages: [{ role: "user", content: openingPrompt }],
   });
   const openingContent =
@@ -166,7 +211,13 @@ async function runMeetingMode(
       if (agentId === "shinohara") continue;
       const agent = AGENT_MAP[agentId];
       if (!agent) continue;
-      const content = await callAgent(agentId, topic, messages);
+      const content = await callAgent(
+        agentId,
+        topic,
+        messages,
+        projectContext,
+        memoryContext,
+      );
       if (content) {
         messages.push({
           agentId,
@@ -179,12 +230,14 @@ async function runMeetingMode(
   }
 
   // 篠原がまとめ（決定事項を抽出）
-  const summaryResponse = await client.messages.create({
+  const summarySystemPrompt = projectContext
+    ? `${projectContext}\n\n${shinohara.systemPrompt}\n\n議論をまとめる際は、必ず「決定事項：」として重要な決定を箇条書きで示すこと。`
+    : shinohara.systemPrompt +
+      "\n\n議論をまとめる際は、必ず「決定事項：」として重要な決定を箇条書きで示すこと。";
+  const summaryResponse = await getClient().messages.create({
     model: MODEL,
-    max_tokens: 500,
-    system:
-      shinohara.systemPrompt +
-      "\n\n議論をまとめる際は、必ず「決定事項：」として重要な決定を箇条書きで示すこと。",
+    max_tokens: 900,
+    system: summarySystemPrompt,
     messages: [
       {
         role: "user",

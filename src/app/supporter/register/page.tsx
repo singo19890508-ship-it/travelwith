@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "サポーター登録 | TravelWith",
+  title: "サポーター登録 | FUKU-TABI",
   description: "介助サポーターの登録フォームです。旅行者のサポートができる方のご登録をお待ちしています。",
 };
 

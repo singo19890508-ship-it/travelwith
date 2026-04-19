@@ -19,6 +19,9 @@ export default function AgentsPage() {
   const [displayedMessages, setDisplayedMessages] = useState<ChatMessage[]>([]);
   const [lastTopic, setLastTopic] = useState("");
   const [saved, setSaved] = useState(false);
+  const [savedToDoc, setSavedToDoc] = useState(false);
+  const [docUrl, setDocUrl] = useState("");
+  const [savingToDoc, setSavingToDoc] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   // メッセージを1つずつアニメーションで表示
@@ -67,6 +70,35 @@ export default function AgentsPage() {
     setSaved(true);
   };
 
+  const saveToGoogleDocs = async () => {
+    if (!messages.length || savingToDoc) return;
+    setSavingToDoc(true);
+    try {
+      const participants = [...new Set(messages.map((m) => m.agentName))];
+      const res = await fetch("/api/agents/save-minutes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          topic: lastTopic,
+          participants,
+          messages,
+          keyDecisions: [],
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSavedToDoc(true);
+        if (data.url) setDocUrl(data.url);
+      } else {
+        alert("保存に失敗しました: " + (data.error || "不明なエラー"));
+      }
+    } catch {
+      alert("Googleドキュメントへの保存に失敗しました。");
+    } finally {
+      setSavingToDoc(false);
+    }
+  };
+
   const toggleAgent = (id: string) => {
     setSelectedAgents((prev) =>
       prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id],
@@ -81,6 +113,8 @@ export default function AgentsPage() {
     setMessages([]);
     setDisplayedMessages([]);
     setSaved(false);
+    setSavedToDoc(false);
+    setDocUrl("");
     setLastTopic(userMsg);
 
     try {
@@ -111,7 +145,9 @@ export default function AgentsPage() {
       <aside className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col overflow-hidden">
         <div className="px-4 py-4 border-b border-gray-800">
           <h2 className="text-white font-bold text-sm">AI社員室</h2>
-          <p className="text-gray-500 text-xs mt-0.5">18名 在籍中</p>
+          <p className="text-gray-500 text-xs mt-0.5">
+            {AGENTS.length}名 在籍中
+          </p>
         </div>
 
         {/* モード切替 */}
@@ -199,17 +235,39 @@ export default function AgentsPage() {
           </div>
           <div className="flex items-center gap-3">
             {messages.length > 0 && !loading && (
-              <button
-                onClick={saveMinutes}
-                disabled={saved}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                  saved
-                    ? "bg-green-900/40 text-green-400 cursor-default"
-                    : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                }`}
-              >
-                {saved ? "✅ ダウンロード済み" : "📄 会議録をダウンロード"}
-              </button>
+              <>
+                <button
+                  onClick={saveMinutes}
+                  disabled={saved}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                    saved
+                      ? "bg-green-900/40 text-green-400 cursor-default"
+                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                  }`}
+                >
+                  {saved ? "✅ ダウンロード済み" : "📄 ダウンロード"}
+                </button>
+                {savedToDoc ? (
+                  <a
+                    href={docUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-900/40 text-blue-400 hover:bg-blue-900/60 transition-colors"
+                  >
+                    ✅ Docsで開く
+                  </a>
+                ) : (
+                  <button
+                    onClick={saveToGoogleDocs}
+                    disabled={savingToDoc}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-300 hover:bg-gray-700 disabled:opacity-50 transition-colors"
+                  >
+                    {savingToDoc
+                      ? "⏳ 保存中..."
+                      : "📋 Googleドキュメントに保存"}
+                  </button>
+                )}
+              </>
             )}
             {loading && (
               <div className="flex items-center gap-2 text-amber-400 text-sm">
@@ -240,7 +298,7 @@ export default function AgentsPage() {
                   : "議題を入力して会議を開始してください"}
               </p>
               <p className="text-gray-600 text-xs mt-1">
-                例：「TravelWithの集客を増やすには？」
+                例：「FUKU-TABIの集客を増やすには？」
               </p>
             </div>
           )}
@@ -254,7 +312,7 @@ export default function AgentsPage() {
                   alt={msg.agentName}
                   className="w-9 h-9 rounded-full flex-shrink-0 bg-gray-700 mt-0.5"
                 />
-                <div className="max-w-2xl">
+                <div className="flex-1 min-w-0">
                   <div className="flex items-baseline gap-2 mb-1">
                     <span
                       className="text-sm font-bold"
@@ -265,7 +323,7 @@ export default function AgentsPage() {
                     <span className="text-gray-500 text-xs">{msg.role}</span>
                   </div>
                   <div
-                    className="rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-100 leading-relaxed"
+                    className="rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-gray-100 leading-relaxed whitespace-pre-wrap break-words"
                     style={{
                       backgroundColor: agent?.bgColor
                         ? agent.bgColor + "15"

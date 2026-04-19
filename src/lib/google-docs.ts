@@ -1,6 +1,7 @@
-// Google Docs API — 会議録の追記
+// Google Docs API — 会議録の追記（OAuth2方式）
 
-const GOOGLE_DOCS_SCOPES = "https://www.googleapis.com/auth/documents";
+import { google } from "googleapis";
+import { readFileSync, writeFileSync } from "fs";
 
 interface MeetingMinutes {
   topic: string;
@@ -10,45 +11,38 @@ interface MeetingMinutes {
   timestamp: string;
 }
 
-async function getAccessToken(): Promise<string> {
-  const credentials = JSON.parse(process.env.GOOGLE_DOCS_CREDENTIALS || "{}");
+function getOAuth2Client() {
+  const credPath = process.env.GOOGLE_CREDENTIALS_PATH;
+  const tokenPath = process.env.GOOGLE_TOKENS_PATH;
 
-  const now = Math.floor(Date.now() / 1000);
-  const payload = {
-    iss: credentials.client_email,
-    scope: GOOGLE_DOCS_SCOPES,
-    aud: "https://oauth2.googleapis.com/token",
-    iat: now,
-    exp: now + 3600,
-  };
+  if (!credPath || !tokenPath) {
+    throw new Error(
+      "GOOGLE_CREDENTIALS_PATH / GOOGLE_TOKENS_PATH が設定されていません",
+    );
+  }
 
-  // JWTを署名してアクセストークンを取得
-  const header = Buffer.from(
-    JSON.stringify({ alg: "RS256", typ: "JWT" }),
-  ).toString("base64url");
-  const body = Buffer.from(JSON.stringify(payload)).toString("base64url");
-  const unsigned = `${header}.${body}`;
+  const credentials = JSON.parse(readFileSync(credPath, "utf-8"));
+  const { client_id, client_secret } = credentials.installed;
 
-  const { createSign } = await import("crypto");
-  const sign = createSign("RSA-SHA256");
-  sign.update(unsigned);
-  const signature = sign.sign(credentials.private_key, "base64url");
-  const jwt = `${unsigned}.${signature}`;
+  const oauth2Client = new google.auth.OAuth2(
+    client_id,
+    client_secret,
+    "http://localhost:3001/callback",
+  );
 
-  const res = await fetch("https://oauth2.googleapis.com/token", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
-      assertion: jwt,
-    }),
+  const tokens = JSON.parse(readFileSync(tokenPath, "utf-8"));
+  oauth2Client.setCredentials(tokens);
+
+  // トークン更新時に自動保存
+  oauth2Client.on("tokens", (newTokens) => {
+    const current = JSON.parse(readFileSync(tokenPath, "utf-8"));
+    writeFileSync(
+      tokenPath,
+      JSON.stringify({ ...current, ...newTokens }, null, 2),
+    );
   });
 
-  const data = await res.json();
-  if (!data.access_token) {
-    throw new Error(`Token取得失敗: ${JSON.stringify(data)}`);
-  }
-  return data.access_token;
+  return oauth2Client;
 }
 
 export async function appendMeetingMinutes(
@@ -57,9 +51,10 @@ export async function appendMeetingMinutes(
   const docId = process.env.GOOGLE_DOCS_MINUTES_ID;
   if (!docId) throw new Error("GOOGLE_DOCS_MINUTES_IDが設定されていません");
 
-  const accessToken = await getAccessToken();
+  const auth = getOAuth2Client();
+  const docs = google.docs({ version: "v1", auth });
 
-  // 会議録のテキストを作成
+  // 会議録テキスト作成
   const date = new Date(minutes.timestamp).toLocaleString("ja-JP", {
     timeZone: "Asia/Tokyo",
   });
@@ -88,41 +83,28 @@ export async function appendMeetingMinutes(
 
   const text = lines.join("\n");
 
-  // ドキュメントの末尾に追記
-  // まずドキュメントの現在の長さを取得
-  const getRes = await fetch(
-    `https://docs.googleapis.com/v1/documents/${docId}`,
-    {
-      headers: { Authorization: `Bearer ${accessToken}` },
-    },
-  );
-  const doc = await getRes.json();
-  const endIndex = doc.body?.content?.slice(-1)[0]?.endIndex ?? 1;
+  // ドキュメント末尾に追記
+  const docRes = await docs.documents.get({ documentId: docId });
+  const content = docRes.data.body?.content ?? [];
+  const endIndex = content[content.length - 1]?.endIndex ?? 1;
 
-  // テキストを挿入
-  const updateRes = await fetch(
-    `https://docs.googleapis.com/v1/documents/${docId}:batchUpdate`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        requests: [
-          {
-            insertText: {
-              location: { index: endIndex - 1 },
-              text,
-            },
+  await docs.documents.batchUpdate({
+    documentId: docId,
+    requestBody: {
+      requests: [
+        {
+          insertText: {
+            location: { index: endIndex - 1 },
+            text,
           },
-        ],
-      }),
+        },
+      ],
     },
-  );
+  });
+}
 
-  if (!updateRes.ok) {
-    const err = await updateRes.json();
-    throw new Error(`Docs書き込みエラー: ${JSON.stringify(err)}`);
-  }
+export function getMeetingDocUrl(): string {
+  const docId = process.env.GOOGLE_DOCS_MINUTES_ID;
+  if (!docId) return "";
+  return `https://docs.google.com/document/d/${docId}/edit`;
 }

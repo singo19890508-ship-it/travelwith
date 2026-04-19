@@ -12,16 +12,33 @@ async function getStats() {
       { count: activeSupporters },
       { count: matchedCount },
     ] = await Promise.all([
-      supabase.from("traveler_applications").select("*", { count: "exact", head: true }),
-      supabase.from("traveler_applications").select("*", { count: "exact", head: true }).eq("status", "pending"),
-      supabase.from("supporter_registrations").select("*", { count: "exact", head: true }),
-      supabase.from("supporter_registrations").select("*", { count: "exact", head: true }).eq("status", "active"),
-      supabase.from("traveler_applications").select("*", { count: "exact", head: true }).eq("status", "matched"),
+      supabase
+        .from("traveler_applications")
+        .select("*", { count: "exact", head: true }),
+      supabase
+        .from("traveler_applications")
+        .select("*", { count: "exact", head: true })
+        .eq("status", "pending"),
+      supabase
+        .from("supporter_registrations")
+        .select("*", { count: "exact", head: true }),
+      supabase
+        .from("supporter_registrations")
+        .select("*", { count: "exact", head: true })
+        .eq("status", "active"),
+      supabase
+        .from("traveler_applications")
+        .select("*", { count: "exact", head: true })
+        .eq("status", "matched"),
     ]);
 
     // 今月の申込数
     const now = new Date();
-    const firstOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
+    const firstOfMonth = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      1,
+    ).toISOString();
     const { count: thisMonthTravelers } = await supabase
       .from("traveler_applications")
       .select("*", { count: "exact", head: true })
@@ -55,7 +72,12 @@ export default async function AdminDashboard() {
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-800">ダッシュボード</h1>
         <p className="text-gray-500 text-sm mt-1">
-          {new Date().toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric" })} 時点
+          {new Date().toLocaleDateString("ja-JP", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}{" "}
+          時点
         </p>
       </div>
 
@@ -105,11 +127,23 @@ export default async function AdminDashboard() {
         >
           <div className="flex items-center justify-between mb-3">
             <h2 className="font-bold text-gray-800">旅行者申込一覧</h2>
-            <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <svg
+              className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
             </svg>
           </div>
-          <p className="text-gray-500 text-sm">申込一覧の確認・ステータス管理</p>
+          <p className="text-gray-500 text-sm">
+            申込一覧の確認・ステータス管理
+          </p>
         </Link>
         <Link
           href="/admin/supporters"
@@ -117,11 +151,71 @@ export default async function AdminDashboard() {
         >
           <div className="flex items-center justify-between mb-3">
             <h2 className="font-bold text-gray-800">サポーター一覧</h2>
-            <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <svg
+              className="w-5 h-5 text-gray-400 group-hover:text-amber-700 transition-colors"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
             </svg>
           </div>
-          <p className="text-gray-500 text-sm">登録者一覧の確認・審査状況の管理</p>
+          <p className="text-gray-500 text-sm">
+            登録者一覧の確認・審査状況の管理
+          </p>
+        </Link>
+        <Link
+          href="/admin/products"
+          className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md transition-shadow group"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="font-bold text-gray-800">旅行商品管理</h2>
+            <svg
+              className="w-5 h-5 text-gray-400 group-hover:text-amber-700 transition-colors"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </div>
+          <p className="text-gray-500 text-sm">
+            旅行プランの作成・旅程エディタ・公開管理
+          </p>
+        </Link>
+        <Link
+          href="/admin/reservations"
+          className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md transition-shadow group"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="font-bold text-gray-800">予約・問い合わせ管理</h2>
+            <svg
+              className="w-5 h-5 text-gray-400 group-hover:text-amber-700 transition-colors"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </div>
+          <p className="text-gray-500 text-sm">
+            予約・相談の一覧確認とステータス管理
+          </p>
         </Link>
       </div>
     </div>
