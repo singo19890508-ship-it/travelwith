@@ -1,4 +1,8 @@
+import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
+import { routing } from "@/i18n/routing";
+
+const intlMiddleware = createMiddleware(routing);
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -18,13 +22,17 @@ export function middleware(request: NextRequest) {
       return NextResponse.redirect(loginUrl);
     }
 
-    // セッションの簡易検証（値が存在すれば通過）
     return NextResponse.next();
   }
 
-  return NextResponse.next();
+  // それ以外はnext-intlのロケールミドルウェアを適用
+  return intlMiddleware(request);
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: [
+    // next-intl対象（APIルート・静的ファイル・adminを除く）
+    "/((?!api|_next|_vercel|admin|.*\\..*).*)",
+    "/admin/:path*",
+  ],
 };
