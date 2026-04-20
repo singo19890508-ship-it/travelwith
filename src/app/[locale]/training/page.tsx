@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Link } from "@/i18n/navigation";
+import TrainingRegisterForm from "@/components/training/TrainingRegisterForm";
 
 export async function generateMetadata() {
   return {
@@ -443,6 +444,24 @@ export default async function TrainingPage({
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* 仮登録フォーム */}
+        <section className="py-16 px-4 bg-white" id="register">
+          <div className="max-w-lg mx-auto">
+            <p className="text-satsuma-600 font-semibold text-sm mb-3 text-center">
+              PRE-REGISTRATION
+            </p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 text-center">
+              仮登録（無料）
+            </h2>
+            <p className="text-gray-500 text-sm text-center mb-8 leading-relaxed">
+              開催が決まり次第、優先的にご案内します。
+              <br />
+              初回は2026年11月を予定しています。
+            </p>
+            <TrainingRegisterForm />
           </div>
         </section>
 
