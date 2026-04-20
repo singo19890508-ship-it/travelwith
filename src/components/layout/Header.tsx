@@ -10,6 +10,7 @@ export default async function Header() {
     { href: "/", label: t("home") },
     { href: "/flow", label: t("flow") },
     { href: "/caregivers", label: t("caregivers") },
+    { href: "/field", label: "現場から" },
     { href: "/training", label: "育成講座" },
     { href: "/join", label: t("join") },
     { href: "/safety", label: t("safety") },

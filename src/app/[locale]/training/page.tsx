@@ -20,9 +20,8 @@ const curriculum = [
     hours: "約2時間",
     points: [
       "使命文を読む・対話する",
-      "原点の話（22歳・100歳のおじいさん・福岡旅行）",
-      "「諦めさせない」の意味",
-      "祈りという贈り物（94歳のおばあちゃんの話）",
+      "旅行支援の現場から学ぶ（実際の事例をもとに）",
+      "「諦めさせない」という在り方",
       "サポーターとしての心構えと倫理",
     ],
   },
@@ -122,38 +121,6 @@ export default async function TrainingPage({
                 そんな気持ちで目の前にいる人を支援する
                 <br />
                 その為に私は私の命を使う
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 原点 */}
-        <section className="bg-sunaha-100 py-14 px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <p className="text-satsuma-600 font-semibold text-sm mb-3">
-              ORIGIN STORY
-            </p>
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
-              22歳のときに、この仕事が始まった
-            </h2>
-            <div className="bg-white rounded-2xl p-6 md:p-8 text-left shadow-sm border border-sunaha-200 text-gray-700 leading-relaxed space-y-3 text-sm md:text-base">
-              <p>
-                最初に勤めた介護施設で、100歳のおじいさんをリハビリしていた。施設とデイサービスの往復の毎日。「何のためにリハビリしているのか」という疑問が湧いた。
-              </p>
-              <p>
-                その方に聞いた。
-                <strong>「福岡に能と狂言を見に行きたい。娘に会いたい」</strong>
-                と。
-              </p>
-              <p>
-                それを目標にリハビリを続け、一泊二日で福岡へ。その喜んだ姿を見て、思った。
-              </p>
-              <p className="text-satsuma-700 font-bold text-base md:text-lg">
-                「これを続けるべきだ。」
-              </p>
-              <p className="text-gray-500 text-sm">
-                ──
-                以来22年。鹿児島・長崎・京都・東京・神戸・広島と、旅を諦めてきた方々と旅してきた。
               </p>
             </div>
           </div>
