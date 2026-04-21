@@ -68,15 +68,6 @@ export default function MobileMenu() {
                 {item.label}
               </Link>
             ))}
-            <div className="pt-3 mt-2 border-t border-gray-100">
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="block w-full text-center px-6 py-3 bg-satsuma-600 text-white font-bold rounded-xl hover:bg-satsuma-700 transition-colors"
-              >
-                まず相談する（無料）
-              </Link>
-            </div>
           </nav>
         </div>
       )}

@@ -39,12 +39,6 @@ export default async function Header() {
 
           <div className="flex items-center gap-2 shrink-0">
             <LocaleSwitcher />
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex px-4 py-2 text-sm font-bold text-white bg-satsuma-600 rounded-lg hover:bg-satsuma-700 transition-colors whitespace-nowrap"
-            >
-              まず相談する（無料）
-            </Link>
             {/* Mobile hamburger */}
             <MobileMenu />
           </div>

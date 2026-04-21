@@ -81,12 +81,6 @@ export default async function Footer() {
             >
               daifuku@corekara-support.com
             </a>
-            <Link
-              href="/contact"
-              className="inline-block text-sm px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mb-4"
-            >
-              {h("contact")}
-            </Link>
             <div className="mt-2 space-y-1 text-xs text-gray-500">
               <div>
                 <Link
