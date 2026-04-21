@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supporterSchema } from "@/lib/validations/supporterSchema";
 import { createServiceClient } from "@/lib/supabase/server";
+import { sendSupporterNotification } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,7 +15,7 @@ export async function POST(req: NextRequest) {
           message: "入力内容に誤りがあります",
           errors: result.error.flatten().fieldErrors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -24,7 +25,7 @@ export async function POST(req: NextRequest) {
     if (!data.agreed_to_terms) {
       return NextResponse.json(
         { message: "利用規約への同意が必要です" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -63,20 +64,25 @@ export async function POST(req: NextRequest) {
     if (error) {
       console.error("Supabase error:", error);
       return NextResponse.json(
-        { message: "データの保存に失敗しました。しばらく経ってからお試しください。" },
-        { status: 500 }
+        {
+          message:
+            "データの保存に失敗しました。しばらく経ってからお試しください。",
+        },
+        { status: 500 },
       );
     }
 
+    sendSupporterNotification(data).catch(console.error);
+
     return NextResponse.json(
       { id: inserted.id, message: "登録を受け付けました" },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (err) {
     console.error("Unexpected error:", err);
     return NextResponse.json(
       { message: "サーバーエラーが発生しました" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

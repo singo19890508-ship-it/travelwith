@@ -75,6 +75,12 @@ export default async function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">{t("contact")}</h4>
             <p className="text-sm text-gray-400 mb-3">{t("contactText")}</p>
+            <a
+              href="mailto:daifuku@corekara-support.com"
+              className="block text-sm text-blue-400 hover:text-blue-300 transition-colors mb-3"
+            >
+              daifuku@corekara-support.com
+            </a>
             <Link
               href="/contact"
               className="inline-block text-sm px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mb-4"

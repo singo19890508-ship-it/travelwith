@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createServiceClient } from "@/lib/supabase/server";
+import { sendContactNotification } from "@/lib/email";
 
 const contactSchema = z.object({
   name: z.string().min(1),
@@ -32,22 +33,25 @@ export async function POST(req: NextRequest) {
       console.error("Supabase error:", error);
       return NextResponse.json(
         { message: "データの保存に失敗しました。もう一度お試しください。" },
-        { status: 500 }
+        { status: 500 },
       );
     }
+
+    // メール通知（失敗してもユーザーへのレスポンスは成功にする）
+    sendContactNotification(data).catch(console.error);
 
     return NextResponse.json({ success: true }, { status: 201 });
   } catch (err) {
     if (err instanceof z.ZodError) {
       return NextResponse.json(
         { message: "入力内容に誤りがあります。", errors: err.errors },
-        { status: 400 }
+        { status: 400 },
       );
     }
     console.error("Unexpected error:", err);
     return NextResponse.json(
       { message: "サーバーエラーが発生しました。" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

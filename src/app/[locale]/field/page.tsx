@@ -79,9 +79,10 @@ export default async function FieldPage({
                     <h2 className="text-lg font-bold text-gray-900 mb-4">
                       {post.title}
                     </h2>
-                    <div className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
-                      {post.body}
-                    </div>
+                    <div
+                      className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap"
+                      dangerouslySetInnerHTML={{ __html: post.body }}
+                    />
                   </div>
                 </article>
               ))}

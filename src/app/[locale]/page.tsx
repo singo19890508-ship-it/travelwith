@@ -1,4 +1,21 @@
-import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `https://fuku-tabi.com/${locale}`,
+    },
+  };
+}
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/top/HeroSection";
@@ -7,8 +24,13 @@ import FlowPreview from "@/components/top/FlowPreview";
 import SafetyTeaser from "@/components/top/SafetyTeaser";
 import JoinTeaser from "@/components/top/JoinTeaser";
 import CtaBanner from "@/components/top/CtaBanner";
+import TourGallery from "@/components/top/TourGallery";
 
-export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
 
@@ -18,6 +40,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <main>
         <HeroSection />
         <ServiceIntro />
+        <TourGallery />
         <FlowPreview />
         <SafetyTeaser />
         <JoinTeaser />
