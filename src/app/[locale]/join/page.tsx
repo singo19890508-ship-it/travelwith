@@ -3,14 +3,23 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHeader from "@/components/common/PageHeader";
 import CtaSection from "@/components/common/CtaSection";
+import { Link } from "@/i18n/navigation";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   return { title: t("joinTitle") };
 }
 
-export default async function JoinPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function JoinPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
 
@@ -42,14 +51,39 @@ export default async function JoinPage({ params }: { params: Promise<{ locale: s
       <Header />
       <main>
         <PageHeader
-          title={t("pageTitle")}
-          description={t("pageDescription")}
+          title="介助者になる"
+          description="旅を諦めてきた人の、初めての一歩を一緒に作りませんか"
           color="teal"
         />
 
+        {/* CTAバナー */}
+        <section className="bg-teal-600 text-white py-8 px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <p className="text-white/80 text-sm mb-4">
+              資格・経験がなくても大丈夫。まずはお気軽にご連絡ください。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/supporter/register"
+                className="inline-block px-8 py-3 bg-white text-teal-700 font-bold rounded-xl hover:bg-teal-50 transition-colors shadow-sm"
+              >
+                サポーター登録を申し込む（無料）
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-block px-8 py-3 bg-teal-500 text-white font-bold rounded-xl border border-white/30 hover:bg-teal-400 transition-colors"
+              >
+                まず相談する
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Intro */}
         <section className="max-w-3xl mx-auto px-4 py-10">
-          <p className="text-gray-700 leading-relaxed text-lg text-center">{t("intro")}</p>
+          <p className="text-gray-700 leading-relaxed text-lg text-center">
+            {t("intro")}
+          </p>
         </section>
 
         {/* Why section */}
@@ -64,7 +98,9 @@ export default async function JoinPage({ params }: { params: Promise<{ locale: s
                 >
                   <div className="text-3xl mb-3">{item.icon}</div>
                   <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -88,8 +124,12 @@ export default async function JoinPage({ params }: { params: Promise<{ locale: s
                 </div>
                 {/* Right: content */}
                 <div className="pb-8">
-                  <h3 className="font-bold text-gray-900 text-lg mb-1">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{step.desc}</p>
+                  <h3 className="font-bold text-gray-900 text-lg mb-1">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {step.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -99,7 +139,9 @@ export default async function JoinPage({ params }: { params: Promise<{ locale: s
         {/* Conditions */}
         <section className="bg-teal-50 py-12 px-4">
           <div className="max-w-2xl mx-auto">
-            <h2 className="section-title text-center mb-8">{t("conditionsTitle")}</h2>
+            <h2 className="section-title text-center mb-8">
+              {t("conditionsTitle")}
+            </h2>
             <div className="bg-white rounded-2xl shadow-sm border border-teal-100 overflow-hidden">
               <table className="w-full text-sm">
                 <tbody>
@@ -121,12 +163,12 @@ export default async function JoinPage({ params }: { params: Promise<{ locale: s
         </section>
 
         <CtaSection
-          title={t("ctaTitle")}
-          description={t("ctaDescription")}
-          primaryLabel={t("ctaButton")}
-          primaryHref="/contact"
-          secondaryLabel={t("ctaTraining")}
-          secondaryHref="/training"
+          title="あなたの経験が、誰かの旅になる"
+          description="介護や旅行が好きな方、人の役に立ちたい方を歓迎します。まずは気軽にご連絡ください。"
+          primaryLabel="サポーター登録を申し込む（無料）"
+          primaryHref="/supporter/register"
+          secondaryLabel="まず相談する"
+          secondaryHref="/contact"
         />
       </main>
       <Footer />

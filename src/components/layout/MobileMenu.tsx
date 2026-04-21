@@ -10,13 +10,10 @@ export default function MobileMenu() {
 
   const navItems = [
     { href: "/", label: t("home") },
-    { href: "/flow", label: t("flow") },
-    { href: "/caregivers", label: t("caregivers") },
-    { href: "/field", label: "現場から" },
-    { href: "/training", label: "育成講座" },
-    { href: "/join", label: t("join") },
-    { href: "/safety", label: t("safety") },
-    { href: "/faq", label: t("faq") },
+    { href: "/flow", label: "旅行に行く" },
+    { href: "/join", label: "介助者になる" },
+    { href: "/field", label: "サポート日記" },
+    { href: "/faq", label: "Q&A" },
   ];
 
   return (

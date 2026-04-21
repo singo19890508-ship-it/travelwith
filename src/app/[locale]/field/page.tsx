@@ -5,7 +5,7 @@ import { getPublishedPosts } from "@/lib/field-posts";
 
 export async function generateMetadata() {
   return {
-    title: "現場から | FUKU-TABI",
+    title: "サポート日記 | FUKU-TABI",
     description:
       "旅を諦めてきた方と一緒に旅してきた、現場からの記録。写真と言葉で綴ります。",
   };
@@ -29,9 +29,11 @@ export default async function FieldPage({
         <section className="bg-satsuma-800 text-white py-14 px-4 text-center">
           <div className="max-w-2xl mx-auto">
             <p className="text-wagold-400 font-semibold text-sm mb-3">
-              FROM THE FIELD
+              SUPPORT DIARY
             </p>
-            <h1 className="text-2xl md:text-3xl font-bold mb-4">現場から</h1>
+            <h1 className="text-2xl md:text-3xl font-bold mb-4">
+              サポート日記
+            </h1>
             <p className="text-white/80 text-sm leading-relaxed">
               旅を諦めてきた方と一緒に旅してきた、現場からの記録。
               <br />
