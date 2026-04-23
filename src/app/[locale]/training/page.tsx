@@ -118,9 +118,7 @@ export default async function TrainingPage({
                 かけがえのない人生を楽しんでほしい
               </p>
               <p className="mt-4 text-wagold-300 font-bold text-base md:text-lg">
-                そんな気持ちで目の前にいる人を支援する
-                <br />
-                その為に私は私の命を使う
+                そんな気持ちで目の前にいる人を支援してくれる方を募集してます。
               </p>
             </div>
           </div>
