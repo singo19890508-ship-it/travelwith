@@ -79,7 +79,7 @@ export default function PartnerPage() {
             <p className="text-center text-gray-500 text-sm mb-8">
               ※ 掲載写真はご本人の同意を得て使用しています。
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
               {[
                 {
                   src: "/images/real/onsen-support.jpg",
@@ -95,11 +95,6 @@ export default function PartnerPage() {
                   src: "/images/real/china-town.jpg",
                   alt: "中華街を観光する様子",
                   caption: "神戸中華街を散策",
-                },
-                {
-                  src: "/images/real/shin-kobe.jpg",
-                  alt: "新神戸駅での移動サポート",
-                  caption: "駅の移動も安心",
                 },
               ].map((photo, i) => (
                 <div

@@ -17,11 +17,6 @@ const photos = [
     caption: "神戸中華街を散策",
   },
   {
-    src: "/images/real/shin-kobe.jpg",
-    alt: "新神戸駅前での移動サポート",
-    caption: "駅の移動もサポート",
-  },
-  {
     src: "/images/tours/tour-shinkansen.jpg",
     alt: "新幹線の車椅子スペースに乗り込むシーン",
     caption: "新幹線でどこへでも",
@@ -40,21 +35,6 @@ const photos = [
     src: "/images/tours/tour-sightseeing.jpg",
     alt: "観光地での記念撮影",
     caption: "観光地を一緒に巡る",
-  },
-  {
-    src: "/images/tours/tour-yukata.jpg",
-    alt: "旅館で浴衣を着てくつろぐ様子",
-    caption: "旅館でのひととき",
-  },
-  {
-    src: "/images/tours/tour-izakaya.jpg",
-    alt: "居酒屋での食事シーン",
-    caption: "地元の味を楽しむ",
-  },
-  {
-    src: "/images/tours/tour-train-boarding.jpg",
-    alt: "電車のホームで乗車サポートを受けるシーン",
-    caption: "乗り換えも安心",
   },
   {
     src: "/images/tours/tour-ryokan-care.jpg",
