@@ -215,7 +215,7 @@ export default function ToursPage() {
                         href="/traveler/apply"
                         className="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-2.5 rounded-xl transition-colors text-sm"
                       >
-                        このツアーを相談する
+                        申し込む・相談する
                       </Link>
                     </div>
                   </div>
@@ -239,7 +239,7 @@ export default function ToursPage() {
               href="/traveler/apply"
               className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-3 rounded-xl transition-colors"
             >
-              まず相談する（無料）
+              お問い合わせ・ご相談
             </Link>
           </div>
         </section>

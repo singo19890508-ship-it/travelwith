@@ -62,20 +62,12 @@ export default async function JoinPage({
             <p className="text-white/80 text-sm mb-4">
               資格・経験がなくても大丈夫。まずはお気軽にご連絡ください。
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/supporter/register"
-                className="inline-block px-8 py-3 bg-white text-teal-700 font-bold rounded-xl hover:bg-teal-50 transition-colors shadow-sm"
-              >
-                サポーター登録を申し込む（無料）
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-block px-8 py-3 bg-teal-500 text-white font-bold rounded-xl border border-white/30 hover:bg-teal-400 transition-colors"
-              >
-                まず相談する
-              </Link>
-            </div>
+            <Link
+              href="/supporter/register"
+              className="inline-block px-8 py-3 bg-white text-teal-700 font-bold rounded-xl hover:bg-teal-50 transition-colors shadow-sm"
+            >
+              サポーター登録を申し込む（無料）
+            </Link>
           </div>
         </section>
 
@@ -282,11 +274,9 @@ export default async function JoinPage({
 
         <CtaSection
           title="あなたの経験が、誰かの旅になる"
-          description="介護や旅行が好きな方、人の役に立ちたい方を歓迎します。まずは気軽にご連絡ください。"
+          description="介護や旅行が好きな方、人の役に立ちたい方を歓迎します。"
           primaryLabel="サポーター登録を申し込む（無料）"
           primaryHref="/supporter/register"
-          secondaryLabel="まず相談する"
-          secondaryHref="/contact"
         />
       </main>
       <Footer />

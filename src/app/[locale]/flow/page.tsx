@@ -168,20 +168,12 @@ export default async function FlowPage({
             <p className="text-white/80 text-sm mb-4">
               ご利用の流れを確認して、すぐに申し込みもできます
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/traveler/apply"
-                className="inline-block px-8 py-3 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-sm"
-              >
-                旅行者として申し込む（無料）
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-block px-8 py-3 bg-blue-500 text-white font-bold rounded-xl border border-white/30 hover:bg-blue-400 transition-colors"
-              >
-                まず相談する
-              </Link>
-            </div>
+            <Link
+              href="/traveler/apply"
+              className="inline-block px-8 py-3 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-sm"
+            >
+              旅行者として申し込む（無料）
+            </Link>
           </div>
         </section>
 
@@ -286,11 +278,9 @@ export default async function FlowPage({
         </section>
         <CtaSection
           title="一歩踏み出してみませんか"
-          description="まずはお気軽にご相談ください。旅行の計画段階でも、具体的なご依頼でも、何でもお聞きします。"
+          description="旅行の計画段階でも、具体的なご依頼でも、何でもお聞きします。"
           primaryLabel="旅行者として申し込む（無料）"
           primaryHref="/traveler/apply"
-          secondaryLabel="まず相談する"
-          secondaryHref="/contact"
         />
       </main>
       <Footer />
