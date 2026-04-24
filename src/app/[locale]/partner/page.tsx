@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "連携パートナー | FUKU-TABI",
@@ -65,6 +66,80 @@ export default function PartnerPage() {
                 サポーター・ドライバー・旅行者の三者が連携して旅を実現します。
                 「移動」は旅の入り口です。ここを安心に変えることが、私たちの使命です。
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 実際のサポートの様子 */}
+        <section className="py-14 px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-800 mb-3 text-center">
+              実際のサポートの様子
+            </h2>
+            <p className="text-center text-gray-500 text-sm mb-8">
+              ※ 掲載写真はご本人の同意を得て使用しています。
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+              {[
+                {
+                  src: "/images/real/onsen-support.jpg",
+                  alt: "温泉での入浴介助サポート",
+                  caption: "温泉入浴介助",
+                },
+                {
+                  src: "/images/real/hotel-lobby.jpg",
+                  alt: "ホテルでくつろぐ旅行者",
+                  caption: "ホテルでひと休み",
+                },
+                {
+                  src: "/images/real/china-town.jpg",
+                  alt: "中華街を観光する様子",
+                  caption: "神戸中華街を散策",
+                },
+                {
+                  src: "/images/real/shin-kobe.jpg",
+                  alt: "新神戸駅での移動サポート",
+                  caption: "駅の移動も安心",
+                },
+              ].map((photo, i) => (
+                <div
+                  key={i}
+                  className="relative aspect-square rounded-xl overflow-hidden shadow-sm"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                    <p className="text-white text-xs font-medium">
+                      {photo.caption}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* 温泉写真を大きく featured */}
+            <div className="relative rounded-2xl overflow-hidden shadow-md h-72 md:h-96">
+              <Image
+                src="/images/real/onsen-support.jpg"
+                alt="温泉での入浴介助。サポーターと旅行者の笑顔。"
+                fill
+                sizes="100vw"
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+                <div>
+                  <p className="text-white font-bold text-xl mb-1">
+                    「温泉に入れると思っていなかった。」
+                  </p>
+                  <p className="text-white/80 text-sm">
+                    — 小牧様（80代・車椅子ご利用）/ 旅行サポート実績より
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

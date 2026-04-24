@@ -2,6 +2,26 @@ import Image from "next/image";
 
 const photos = [
   {
+    src: "/images/real/onsen-support.jpg",
+    alt: "温泉での入浴介助サポートの様子",
+    caption: "温泉入浴介助。笑顔で一緒に。",
+  },
+  {
+    src: "/images/real/hotel-lobby.jpg",
+    alt: "ホテルのロビーでくつろぐ旅行者",
+    caption: "ホテルでのんびり過ごす",
+  },
+  {
+    src: "/images/real/china-town.jpg",
+    alt: "神戸中華街を観光する様子",
+    caption: "神戸中華街を散策",
+  },
+  {
+    src: "/images/real/shin-kobe.jpg",
+    alt: "新神戸駅前での移動サポート",
+    caption: "駅の移動もサポート",
+  },
+  {
     src: "/images/tours/tour-shinkansen.jpg",
     alt: "新幹線の車椅子スペースに乗り込むシーン",
     caption: "新幹線でどこへでも",
