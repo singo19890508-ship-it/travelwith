@@ -23,10 +23,26 @@ export default async function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
+                  href="/tours"
+                  className="hover:text-white transition-colors"
+                >
+                  ツアー一覧
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/flow"
                   className="hover:text-white transition-colors"
                 >
                   {h("flow")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/partner"
+                  className="hover:text-white transition-colors"
+                >
+                  連携パートナー
                 </Link>
               </li>
               <li>

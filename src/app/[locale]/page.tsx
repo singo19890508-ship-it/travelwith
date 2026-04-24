@@ -25,6 +25,7 @@ import SafetyTeaser from "@/components/top/SafetyTeaser";
 import JoinTeaser from "@/components/top/JoinTeaser";
 import CtaBanner from "@/components/top/CtaBanner";
 import TourGallery from "@/components/top/TourGallery";
+import TaxiPartnerSection from "@/components/top/TaxiPartnerSection";
 
 export default async function HomePage({
   params,
@@ -41,6 +42,7 @@ export default async function HomePage({
         <HeroSection />
         <ServiceIntro />
         <TourGallery />
+        <TaxiPartnerSection />
         <FlowPreview />
         <SafetyTeaser />
         <JoinTeaser />

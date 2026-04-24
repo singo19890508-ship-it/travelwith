@@ -8,6 +8,7 @@ export default async function Header() {
 
   const navItems = [
     { href: "/", label: t("home") },
+    { href: "/tours", label: "ツアー" },
     { href: "/flow", label: "旅行に行く" },
     { href: "/join", label: "介助者になる" },
     { href: "/field", label: "サポート日記" },

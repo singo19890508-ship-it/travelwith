@@ -185,6 +185,56 @@ export default async function FlowPage({
           </div>
         </section>
 
+        {/* 福祉タクシー連携バナー */}
+        <section className="py-8 px-4 bg-teal-50 border-b border-teal-100">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-col sm:flex-row items-center gap-4 bg-white rounded-2xl p-5 shadow-sm">
+              <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg
+                  className="w-6 h-6 text-teal-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                  />
+                </svg>
+              </div>
+              <div className="flex-1 text-center sm:text-left">
+                <p className="font-bold text-gray-800 mb-0.5">
+                  移動の不安ゼロ — 福祉タクシー連携あり
+                </p>
+                <p className="text-sm text-gray-500">
+                  空港・駅からのお迎え、観光地間の移動まで、リフト付き専用車両でサポートします。
+                </p>
+              </div>
+              <Link
+                href="/partner"
+                className="text-sm font-bold text-teal-600 hover:text-teal-700 whitespace-nowrap flex items-center gap-1"
+              >
+                詳しく見る
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="py-12 bg-gray-50">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <p className="text-center text-gray-600 text-base mb-12 leading-relaxed">
