@@ -163,14 +163,14 @@ export default async function FlowPage({
         />
 
         {/* CTAバナー */}
-        <section className="bg-blue-600 text-white py-8 px-4">
+        <section className="bg-satsuma-700 text-white py-8 px-4">
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-white/80 text-sm mb-4">
               ご利用の流れを確認して、すぐに申し込みもできます
             </p>
             <Link
               href="/traveler/apply"
-              className="inline-block px-8 py-3 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 transition-colors shadow-sm"
+              className="inline-block px-8 py-3 bg-white text-satsuma-700 font-bold rounded-xl hover:bg-satsuma-50 transition-colors shadow-sm"
             >
               旅行者として申し込む（無料）
             </Link>
@@ -234,16 +234,16 @@ export default async function FlowPage({
             </p>
             <div className="relative">
               {/* Vertical line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-100 hidden sm:block" />
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-satsuma-100 hidden sm:block" />
               <div className="space-y-6">
                 {steps.map((step, i) => (
                   <div key={i} className="relative flex gap-5 sm:gap-8">
-                    <div className="relative flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm z-10">
+                    <div className="relative flex-shrink-0 w-12 h-12 bg-satsuma-600 text-white rounded-full flex items-center justify-center font-bold text-sm z-10">
                       {step.num}
                     </div>
                     <div className="flex-1 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm pb-7">
                       <div className="flex items-start gap-3 mb-3">
-                        <div className="flex-shrink-0 mt-0.5 text-blue-600">
+                        <div className="flex-shrink-0 mt-0.5 text-satsuma-600">
                           {stepIcons[i]}
                         </div>
                         <h2 className="text-xl font-bold text-gray-800">
@@ -253,7 +253,7 @@ export default async function FlowPage({
                       <p className="text-gray-600 text-base leading-relaxed mb-3">
                         {step.desc}
                       </p>
-                      <div className="flex items-center gap-2 text-sm text-blue-600 bg-blue-50 rounded-lg px-3 py-2 w-fit">
+                      <div className="flex items-center gap-2 text-sm text-satsuma-600 bg-satsuma-50 rounded-lg px-3 py-2 w-fit">
                         <svg
                           className="w-4 h-4 flex-shrink-0"
                           fill="none"

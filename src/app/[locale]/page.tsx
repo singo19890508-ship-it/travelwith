@@ -19,13 +19,9 @@ export async function generateMetadata({
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/top/HeroSection";
-import ServiceIntro from "@/components/top/ServiceIntro";
-import FlowPreview from "@/components/top/FlowPreview";
-import SafetyTeaser from "@/components/top/SafetyTeaser";
-import JoinTeaser from "@/components/top/JoinTeaser";
-import CtaBanner from "@/components/top/CtaBanner";
 import TourGallery from "@/components/top/TourGallery";
-import TaxiPartnerSection from "@/components/top/TaxiPartnerSection";
+import FlowPreview from "@/components/top/FlowPreview";
+import CtaBanner from "@/components/top/CtaBanner";
 
 export default async function HomePage({
   params,
@@ -40,12 +36,8 @@ export default async function HomePage({
       <Header />
       <main>
         <HeroSection />
-        <ServiceIntro />
         <TourGallery />
-        <TaxiPartnerSection />
         <FlowPreview />
-        <SafetyTeaser />
-        <JoinTeaser />
         <CtaBanner />
       </main>
       <Footer />

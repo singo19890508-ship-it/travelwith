@@ -9,11 +9,9 @@ export default function MobileMenu() {
   const t = useTranslations("header");
 
   const navItems = [
-    { href: "/", label: t("home") },
     { href: "/tours", label: "ツアー" },
     { href: "/flow", label: "旅行に行く" },
     { href: "/join", label: "介助者になる" },
-    { href: "/field", label: "サポート日記" },
     { href: "/faq", label: "Q&A" },
   ];
 
@@ -22,7 +20,7 @@ export default function MobileMenu() {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="md:hidden p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors"
+        className="md:hidden p-2 rounded-lg text-gray-600 hover:text-satsuma-600 hover:bg-gray-100 transition-colors"
         aria-label={open ? t("menuClose") : t("menuOpen")}
       >
         {open ? (
@@ -64,7 +62,7 @@ export default function MobileMenu() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                className="px-4 py-3 text-base font-medium text-gray-700 hover:text-satsuma-600 hover:bg-satsuma-50 rounded-lg transition-colors"
               >
                 {item.label}
               </Link>

@@ -75,15 +75,15 @@ export default function ToursPage() {
       <Header />
       <main className="min-h-screen bg-white">
         {/* ヒーロー */}
-        <section className="bg-blue-900 text-white py-16 px-4">
+        <section className="bg-satsuma-800 text-white py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block bg-blue-700 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide">
+            <span className="inline-block bg-satsuma-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide">
               TOURS
             </span>
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
               バリアフリーツアー
             </h1>
-            <p className="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-satsuma-100 text-lg max-w-2xl mx-auto leading-relaxed">
               福祉タクシー＋介助サポーターがセットになった、
               鹿児島のバリアフリーツアーをご用意しています。
               「移動」「介助」「観光」すべてお任せください。

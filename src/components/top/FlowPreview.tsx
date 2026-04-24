@@ -18,7 +18,23 @@ export default async function FlowPreview() {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
             {t("title")}
           </h2>
-          <p className="text-gray-500 text-base">{t("subtitle")}</p>
+          <p className="text-gray-500 text-base mb-3">{t("subtitle")}</p>
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-teal-700 bg-teal-50 border border-teal-100 px-3 py-1 rounded-full">
+            <svg
+              className="w-3.5 h-3.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            移動はリフト付き福祉タクシーで安心サポート
+          </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {steps.map((step, i) => (
