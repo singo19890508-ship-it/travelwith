@@ -160,22 +160,8 @@ export default async function FlowPage({
           title="旅行に行く"
           description="安心して旅に出るために、まずここから始めましょう"
           color="blue"
+          imageUrl="/images/real/onsen-support.jpg"
         />
-
-        {/* CTAバナー */}
-        <section className="bg-satsuma-700 text-white py-8 px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <p className="text-white/80 text-sm mb-4">
-              ご利用の流れを確認して、すぐに申し込みもできます
-            </p>
-            <Link
-              href="/traveler/apply"
-              className="inline-block px-8 py-3 bg-white text-satsuma-700 font-bold rounded-xl hover:bg-satsuma-50 transition-colors shadow-sm"
-            >
-              旅行者として申し込む（無料）
-            </Link>
-          </div>
-        </section>
 
         {/* 福祉タクシー連携バナー */}
         <section className="py-8 px-4 bg-teal-50 border-b border-teal-100">
