@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "ツアー一覧 | FUKU-TABI",
@@ -9,67 +12,38 @@ export const metadata: Metadata = {
     "車椅子・介護が必要な方向けの鹿児島バリアフリーツアー。福祉タクシー＋介助サポーター付きで、安心して旅を楽しめます。",
 };
 
-const tours = [
-  {
-    id: "sakurajima-onsen",
-    badge: "人気No.1",
-    badgeColor: "bg-orange-500",
-    title: "桜島と霧島温泉 ゆったり1泊2日",
-    subtitle: "鹿児島を代表する絶景と名湯を、介助付きで",
-    duration: "1泊2日",
-    area: "鹿児島市・霧島市",
-    price: "¥58,000〜",
-    priceNote: "（1名・介助費用込み）",
-    tags: ["車椅子対応", "温泉入浴介助あり", "福祉タクシー送迎"],
-    highlights: [
-      "桜島フェリーで雄大な景色を体感",
-      "バリアフリー対応の霧島温泉旅館",
-      "温泉入浴介助（有資格サポーター同行）",
-      "空港〜ホテル間リフト付き車両で送迎",
-    ],
-    status: "準備中",
-  },
-  {
-    id: "ibusuki-satsumaimo",
-    badge: "鹿児島限定",
-    badgeColor: "bg-teal-600",
-    title: "指宿砂むし温泉と薩摩の食めぐり",
-    subtitle: "砂むし体験と新鮮な薩摩料理を楽しむ日帰りツアー",
-    duration: "日帰り",
-    area: "指宿市",
-    price: "¥28,000〜",
-    priceNote: "（1名・介助費用込み）",
-    tags: ["車椅子対応", "日帰り", "食事付き"],
-    highlights: [
-      "指宿名物・砂むし温泉を安心体験",
-      "バリアフリー対応施設のみ厳選",
-      "新鮮な地魚・薩摩料理のランチ付き",
-      "往復リフト付き専用車両",
-    ],
-    status: "準備中",
-  },
-  {
-    id: "kagoshima-city",
-    badge: "初めての方に",
-    badgeColor: "bg-blue-600",
-    title: "鹿児島市内 歴史と文化の半日散策",
-    subtitle: "仙巌園・城山・維新ふるさと館を介助サポーターと巡る",
-    duration: "半日（約5時間）",
-    area: "鹿児島市内",
-    price: "¥18,000〜",
-    priceNote: "（1名・介助費用込み）",
-    tags: ["車椅子対応", "半日", "市内観光"],
-    highlights: [
-      "世界文化遺産・仙巌園をゆっくり見学",
-      "城山展望台から桜島の絶景",
-      "維新ふるさと館（バリアフリー完備）",
-      "鹿児島中央駅発着",
-    ],
-    status: "準備中",
-  },
-];
+type Tour = {
+  id: string;
+  badge: string;
+  badgeColor: string;
+  title: string;
+  subtitle: string;
+  duration: string;
+  area: string;
+  price: string;
+  priceNote: string;
+  tags: string[];
+  highlights: string[];
+  imageUrl: string;
+  status: string;
+  published: boolean;
+};
+
+function loadTours(): Tour[] {
+  try {
+    const raw = fs.readFileSync(
+      path.join(process.cwd(), "src", "data", "tours.json"),
+      "utf-8",
+    );
+    return (JSON.parse(raw) as Tour[]).filter((t) => t.published !== false);
+  } catch {
+    return [];
+  }
+}
 
 export default function ToursPage() {
+  const tours = loadTours();
+
   return (
     <>
       <Header />
@@ -113,9 +87,20 @@ export default function ToursPage() {
                 <div className="flex flex-col md:flex-row">
                   {/* 写真エリア */}
                   <div className="w-full md:w-64 h-48 md:h-auto bg-gray-100 flex items-center justify-center flex-shrink-0 relative">
-                    <span className="text-gray-400 text-sm">
-                      写真（準備中）
-                    </span>
+                    {tour.imageUrl ? (
+                      <Image
+                        src={tour.imageUrl}
+                        alt={tour.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 256px"
+                        className="object-cover"
+                        unoptimized
+                      />
+                    ) : (
+                      <span className="text-gray-400 text-sm">
+                        写真（準備中）
+                      </span>
+                    )}
                     <span
                       className={`absolute top-3 left-3 ${tour.badgeColor} text-white text-xs font-bold px-2.5 py-1 rounded-full`}
                     >

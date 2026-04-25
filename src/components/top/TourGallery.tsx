@@ -1,49 +1,30 @@
 import Image from "next/image";
+import fs from "fs";
+import path from "path";
 
-const photos = [
-  {
-    src: "/images/real/onsen-support.jpg",
-    alt: "温泉での入浴介助サポートの様子",
-    caption: "温泉入浴介助。笑顔で一緒に。",
-  },
-  {
-    src: "/images/real/hotel-lobby.jpg",
-    alt: "ホテルのロビーでくつろぐ旅行者",
-    caption: "ホテルでのんびり過ごす",
-  },
-  {
-    src: "/images/real/china-town.jpg",
-    alt: "神戸中華街を観光する様子",
-    caption: "神戸中華街を散策",
-  },
-  {
-    src: "/images/tours/tour-shinkansen.jpg",
-    alt: "新幹線の車椅子スペースに乗り込むシーン",
-    caption: "新幹線でどこへでも",
-  },
-  {
-    src: "/images/tours/tour-onsen.jpg",
-    alt: "温泉を楽しむ旅行者",
-    caption: "鹿児島の温泉を満喫",
-  },
-  {
-    src: "/images/tours/tour-ryokan-dinner.jpg",
-    alt: "旅館の食事を楽しむ様子",
-    caption: "旅館でゆったり食事",
-  },
-  {
-    src: "/images/tours/tour-sightseeing.jpg",
-    alt: "観光地での記念撮影",
-    caption: "観光地を一緒に巡る",
-  },
-  {
-    src: "/images/tours/tour-ryokan-care.jpg",
-    alt: "旅館の畳の間でケアを受ける様子",
-    caption: "旅先でも丁寧なケア",
-  },
-];
+type GalleryPhoto = {
+  id: string;
+  src: string;
+  alt: string;
+  caption: string;
+};
+
+function loadGallery(): GalleryPhoto[] {
+  try {
+    const raw = fs.readFileSync(
+      path.join(process.cwd(), "src", "data", "gallery.json"),
+      "utf-8",
+    );
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
 
 export default function TourGallery() {
+  const photos = loadGallery();
+  if (photos.length === 0) return null;
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4">
@@ -66,7 +47,7 @@ export default function TourGallery() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {photos.map((photo, i) => (
             <div
-              key={i}
+              key={photo.id ?? i}
               className="group relative overflow-hidden rounded-xl aspect-square bg-gray-200 shadow-sm"
             >
               <Image
@@ -75,6 +56,7 @@ export default function TourGallery() {
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
+                unoptimized
               />
               {/* オーバーレイキャプション */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">

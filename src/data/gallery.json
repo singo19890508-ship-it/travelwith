@@ -1,0 +1,50 @@
+[
+  {
+    "id": "g1",
+    "src": "/images/real/onsen-support.jpg",
+    "alt": "温泉での入浴介助サポートの様子",
+    "caption": "温泉入浴介助。笑顔で一緒に。"
+  },
+  {
+    "id": "g2",
+    "src": "/images/real/hotel-lobby.jpg",
+    "alt": "ホテルのロビーでくつろぐ旅行者",
+    "caption": "ホテルでのんびり過ごす"
+  },
+  {
+    "id": "g3",
+    "src": "/images/real/china-town.jpg",
+    "alt": "神戸中華街を観光する様子",
+    "caption": "神戸中華街を散策"
+  },
+  {
+    "id": "g4",
+    "src": "/images/tours/tour-shinkansen.jpg",
+    "alt": "新幹線の車椅子スペースに乗り込むシーン",
+    "caption": "新幹線でどこへでも"
+  },
+  {
+    "id": "g5",
+    "src": "/images/tours/tour-onsen.jpg",
+    "alt": "温泉を楽しむ旅行者",
+    "caption": "鹿児島の温泉を満喫"
+  },
+  {
+    "id": "g6",
+    "src": "/images/tours/tour-ryokan-dinner.jpg",
+    "alt": "旅館の食事を楽しむ様子",
+    "caption": "旅館でゆったり食事"
+  },
+  {
+    "id": "g7",
+    "src": "/images/tours/tour-sightseeing.jpg",
+    "alt": "観光地での記念撮影",
+    "caption": "観光地を一緒に巡る"
+  },
+  {
+    "id": "g8",
+    "src": "/images/tours/tour-ryokan-care.jpg",
+    "alt": "旅館の畳の間でケアを受ける様子",
+    "caption": "旅先でも丁寧なケア"
+  }
+]

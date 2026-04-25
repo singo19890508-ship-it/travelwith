@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 // ─────────────────────────────────────────
 // フィールド定義
@@ -214,6 +215,13 @@ const SECTIONS: Section[] = [
 type Messages = Record<string, Record<string, string>>;
 type DirtyMap = Record<string, boolean>; // `ns.key` → true
 
+type GalleryPhoto = {
+  id: string;
+  src: string;
+  alt: string;
+  caption: string;
+};
+
 // ─────────────────────────────────────────
 // コンポーネント
 // ─────────────────────────────────────────
@@ -228,6 +236,10 @@ export default function ContentEditorPage() {
     msg: string;
   } | null>(null);
 
+  // ギャラリー
+  const [gallery, setGallery] = useState<GalleryPhoto[]>([]);
+  const [gallerySaving, setGallerySaving] = useState(false);
+
   // 初回ロード
   useEffect(() => {
     fetch("/api/admin/content")
@@ -240,6 +252,10 @@ export default function ContentEditorPage() {
         setToast({ type: "error", msg: "コンテンツの読み込みに失敗しました" });
         setLoading(false);
       });
+    fetch("/api/admin/gallery")
+      .then((r) => r.json())
+      .then(setGallery)
+      .catch(() => {});
   }, []);
 
   const getValue = (ns: string, key: string): string =>
@@ -287,7 +303,49 @@ export default function ContentEditorPage() {
     }
   };
 
-  const currentSection = SECTIONS.find((s) => s.id === activeTab)!;
+  // ギャラリー保存
+  const saveGallery = async () => {
+    setGallerySaving(true);
+    const res = await fetch("/api/admin/gallery", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(gallery),
+    });
+    setGallerySaving(false);
+    if (res.ok) {
+      setToast({ type: "success", msg: "✅ ギャラリーを保存しました！" });
+    } else {
+      setToast({ type: "error", msg: "保存に失敗しました" });
+    }
+  };
+
+  const updatePhoto = (id: string, key: keyof GalleryPhoto, val: string) => {
+    setGallery((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, [key]: val } : p)),
+    );
+  };
+
+  const movePhoto = (i: number, dir: -1 | 1) => {
+    const next = [...gallery];
+    const j = i + dir;
+    if (j < 0 || j >= next.length) return;
+    [next[i], next[j]] = [next[j], next[i]];
+    setGallery(next);
+  };
+
+  const addPhoto = () => {
+    setGallery((prev) => [
+      ...prev,
+      { id: `g${Date.now()}`, src: "", alt: "", caption: "" },
+    ]);
+  };
+
+  const removePhoto = (id: string) => {
+    if (!confirm("この写真を削除しますか？")) return;
+    setGallery((prev) => prev.filter((p) => p.id !== id));
+  };
+
+  const currentSection = SECTIONS.find((s) => s.id === activeTab);
   const dirtyCount = Object.keys(dirty).length;
 
   return (
@@ -341,6 +399,18 @@ export default function ContentEditorPage() {
               </button>
             );
           })}
+          {/* ギャラリータブ */}
+          <button
+            onClick={() => setActiveTab("gallery")}
+            className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium border-b-2 whitespace-nowrap transition-colors ${
+              activeTab === "gallery"
+                ? "border-satsuma-600 text-satsuma-700"
+                : "border-transparent text-gray-500 hover:text-gray-700"
+            }`}
+          >
+            <span>📸</span>
+            ギャラリー写真
+          </button>
         </div>
       </div>
 
@@ -367,9 +437,124 @@ export default function ContentEditorPage() {
       <div className="max-w-5xl mx-auto px-4 py-8">
         {loading ? (
           <div className="text-center py-20 text-gray-400">読み込み中...</div>
-        ) : (
+        ) : activeTab === "gallery" ? (
+          /* ─── ギャラリー写真エディター ─── */
           <>
-            {/* セクション説明 */}
+            <div className="bg-blue-50 border border-blue-100 rounded-xl px-5 py-3 mb-6 flex items-start gap-3">
+              <span className="text-2xl">📸</span>
+              <div>
+                <p className="font-bold text-blue-800 text-sm">
+                  ギャラリー写真（TOPページ）
+                </p>
+                <p className="text-blue-600 text-xs mt-0.5">
+                  写真のURLを貼り付けて「保存する」を押してください。保存後{" "}
+                  <code className="bg-blue-100 px-1 rounded">git push</code>{" "}
+                  で本番反映。
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {gallery.map((photo, i) => (
+                <div
+                  key={photo.id}
+                  className="bg-white border border-gray-100 rounded-xl p-5 flex gap-4"
+                >
+                  {/* サムネイル */}
+                  <div className="w-24 h-24 flex-shrink-0 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center">
+                    {photo.src ? (
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        width={96}
+                        height={96}
+                        className="object-cover w-full h-full"
+                        unoptimized
+                      />
+                    ) : (
+                      <span className="text-gray-400 text-xs text-center px-1">
+                        URL未設定
+                      </span>
+                    )}
+                  </div>
+
+                  {/* フィールド */}
+                  <div className="flex-1 space-y-2">
+                    <input
+                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-satsuma-300"
+                      placeholder="写真URL（https://...）"
+                      value={photo.src}
+                      onChange={(e) =>
+                        updatePhoto(photo.id, "src", e.target.value)
+                      }
+                    />
+                    <input
+                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-satsuma-300"
+                      placeholder="キャプション（ホバー時に表示）"
+                      value={photo.caption}
+                      onChange={(e) =>
+                        updatePhoto(photo.id, "caption", e.target.value)
+                      }
+                    />
+                    <input
+                      className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-400 focus:outline-none focus:ring-2 focus:ring-satsuma-300"
+                      placeholder="代替テキスト（SEO・アクセシビリティ用）"
+                      value={photo.alt}
+                      onChange={(e) =>
+                        updatePhoto(photo.id, "alt", e.target.value)
+                      }
+                    />
+                  </div>
+
+                  {/* 操作 */}
+                  <div className="flex flex-col gap-1 flex-shrink-0">
+                    <button
+                      onClick={() => movePhoto(i, -1)}
+                      disabled={i === 0}
+                      className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold px-2 py-1 rounded-lg disabled:opacity-30"
+                    >
+                      ↑
+                    </button>
+                    <button
+                      onClick={() => movePhoto(i, 1)}
+                      disabled={i === gallery.length - 1}
+                      className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold px-2 py-1 rounded-lg disabled:opacity-30"
+                    >
+                      ↓
+                    </button>
+                    <button
+                      onClick={() => removePhoto(photo.id)}
+                      className="text-xs bg-red-50 hover:bg-red-100 text-red-500 font-medium px-2 py-1 rounded-lg mt-1"
+                    >
+                      削除
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 flex gap-3">
+              <button
+                onClick={addPhoto}
+                className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-xl transition-colors"
+              >
+                ＋ 写真を追加
+              </button>
+            </div>
+
+            <div className="mt-6 flex justify-end">
+              <button
+                onClick={saveGallery}
+                disabled={gallerySaving}
+                className="px-8 py-2.5 bg-satsuma-700 text-white font-bold rounded-lg text-sm disabled:opacity-40 hover:bg-satsuma-800 transition-colors"
+              >
+                {gallerySaving ? "保存中..." : "ギャラリーを保存する"}
+              </button>
+            </div>
+          </>
+        ) : currentSection ? (
+          /* ─── テキスト編集（通常タブ） ─── */
+          <>
             <div className="bg-blue-50 border border-blue-100 rounded-xl px-5 py-3 mb-6 flex items-start gap-3">
               <span className="text-2xl">{currentSection.icon}</span>
               <div>
@@ -385,7 +570,6 @@ export default function ContentEditorPage() {
               </div>
             </div>
 
-            {/* フィールド一覧 */}
             <div className="space-y-4">
               {currentSection.fields.map((field) => {
                 const fieldKey = `${field.ns}.${field.key}`;
@@ -446,14 +630,12 @@ export default function ContentEditorPage() {
               })}
             </div>
 
-            {/* 下部保存ボタン */}
             <div className="mt-8 flex justify-end gap-3">
               {hasDirty && (
                 <button
                   onClick={() => {
-                    if (confirm("未保存の変更を破棄しますか？")) {
+                    if (confirm("未保存の変更を破棄しますか？"))
                       window.location.reload();
-                    }
                   }}
                   className="px-5 py-2.5 border border-gray-200 text-gray-600 rounded-lg text-sm hover:bg-gray-50 transition-colors"
                 >
@@ -471,7 +653,7 @@ export default function ContentEditorPage() {
               </button>
             </div>
           </>
-        )}
+        ) : null}
       </div>
     </div>
   );
