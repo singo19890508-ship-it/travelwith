@@ -355,7 +355,10 @@
     "ctaTitle": "먼저 편하게 상담해 주세요",
     "ctaDescription": "\"내가 할 수 있을까?\"는 단계에서도 괜찮습니다.",
     "ctaButton": "개호인 등록 상담하기",
-    "ctaTraining": "연수 안내 보기"
+    "ctaTraining": "연수 안내 보기",
+    "trainingLabel": "TRAINING PROGRAM",
+    "trainingTitle": "여행 서포터 육성 강좌",
+    "trainingDesc": "자격・경험이 없어도 괜찮습니다. 회장 후쿠다 신고가 직접 지도하는 가고시마만의 실천형 양성 프로그램입니다."
   },
   "training": {
     "pageTitle": "연수 안내",

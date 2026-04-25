@@ -355,7 +355,10 @@
     "ctaTitle": "Feel free to consult us first",
     "ctaDescription": "Even if you're wondering 'Can I do this?' — that's completely fine. We'll explain everything in detail.",
     "ctaButton": "Caregiver Registration Inquiry",
-    "ctaTraining": "View Training Program"
+    "ctaTraining": "View Training Program",
+    "trainingLabel": "TRAINING PROGRAM",
+    "trainingTitle": "Travel Supporter Training Course",
+    "trainingDesc": "No experience required. A hands-on training program unique to Kagoshima, led directly by founder Shingo Fukuda."
   },
   "training": {
     "pageTitle": "Training Program",

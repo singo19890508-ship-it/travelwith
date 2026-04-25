@@ -355,7 +355,10 @@
     "ctaTitle": "请先随时来咨询",
     "ctaDescription": "即使处于「我能做到吗？」的阶段也没关系。",
     "ctaButton": "护理员注册咨询",
-    "ctaTraining": "查看培训介绍"
+    "ctaTraining": "查看培训介绍",
+    "trainingLabel": "TRAINING PROGRAM",
+    "trainingTitle": "旅行支援者培训课程",
+    "trainingDesc": "无需资格和经验。由会长福田真悟亲自指导，这是鹿儿岛独有的实践型培养课程。"
   },
   "training": {
     "pageTitle": "培训介绍",

@@ -355,7 +355,10 @@
     "ctaTitle": "Consúltanos sin compromiso",
     "ctaDescription": "\"¿Puedo hacerlo?\" — está bien preguntarlo.",
     "ctaButton": "Consulta para registro de cuidador",
-    "ctaTraining": "Ver programa de formación"
+    "ctaTraining": "Ver programa de formación",
+    "trainingLabel": "TRAINING PROGRAM",
+    "trainingTitle": "Curso de formación de asistentes de viaje",
+    "trainingDesc": "No se necesita experiencia ni calificaciones. Un programa de formación práctico único en Kagoshima, dirigido directamente por el fundador Shingo Fukuda."
   },
   "training": {
     "pageTitle": "Programa de formación",
