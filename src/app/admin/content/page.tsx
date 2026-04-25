@@ -150,6 +150,19 @@ const SECTIONS: Section[] = [
       { ns: "join", key: "cond3Value", label: "条件3 内容" },
       { ns: "join", key: "cond4Label", label: "条件4 ラベル" },
       { ns: "join", key: "cond4Value", label: "条件4 内容" },
+      {
+        ns: "join",
+        key: "trainingLabel",
+        label: "育成講座 ラベル（英語表記）",
+        hint: "例: TRAINING PROGRAM",
+      },
+      { ns: "join", key: "trainingTitle", label: "育成講座 タイトル" },
+      {
+        ns: "join",
+        key: "trainingDesc",
+        label: "育成講座 説明文",
+        multi: true,
+      },
     ],
   },
   {

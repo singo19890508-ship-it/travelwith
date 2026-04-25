@@ -159,15 +159,13 @@ export default async function JoinPage({
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <p className="text-satsuma-600 font-semibold text-sm mb-2 tracking-widest">
-                TRAINING PROGRAM
+                {t("trainingLabel")}
               </p>
               <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                旅行サポーター育成講座
+                {t("trainingTitle")}
               </h2>
               <p className="text-gray-600 text-sm leading-relaxed">
-                資格・経験がなくても大丈夫。会長・福田真悟が直接指導する、
-                <br className="hidden sm:block" />
-                鹿児島にしかない実践型の養成プログラムです。
+                {t("trainingDesc")}
               </p>
             </div>
 
