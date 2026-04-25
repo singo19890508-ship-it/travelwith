@@ -20,9 +20,9 @@
   },
   "header": {
     "home": "Inicio",
-    "flow": "Cómo funciona",
+    "flow": "Planificar Viaje",
     "caregivers": "Cuidadores",
-    "join": "Ser cuidador",
+    "join": "Ser Asistente",
     "safety": "Seguridad",
     "faq": "FAQ",
     "contact": "Contacto",
@@ -33,7 +33,8 @@
     "travelerApply": "Solicitud de viajero",
     "supporterRegister": "Registro de cuidador",
     "applyButton": "Solicitar",
-    "registerButton": "Registrarse"
+    "registerButton": "Registrarse",
+    "tours": "Tours"
   },
   "footer": {
     "description": "Servicio de emparejamiento que conecta viajeros con necesidades físicas con cuidadores experimentados.",
@@ -156,7 +157,10 @@
     "step6Note": "Por encuesta o teléfono",
     "ctaTitle": "¿Listo para consultar?",
     "ctaDescription": "Aunque no estés seguro, está bien.",
-    "ctaButton": "Contactar y consultar"
+    "ctaButton": "Contactar y consultar",
+    "ctaSectionTitle": "¿Listo para dar el primer paso?",
+    "ctaSectionDesc": "Ya sea en la etapa de planificación o con una solicitud específica, estamos aquí.",
+    "ctaSectionButton": "Solicitar como viajero (gratis)"
   },
   "safety": {
     "pageTitle": "Seguridad",
@@ -358,7 +362,11 @@
     "ctaTraining": "Ver programa de formación",
     "trainingLabel": "TRAINING PROGRAM",
     "trainingTitle": "Curso de formación de asistentes de viaje",
-    "trainingDesc": "No se necesita experiencia ni calificaciones. Un programa de formación práctico único en Kagoshima, dirigido directamente por el fundador Shingo Fukuda."
+    "trainingDesc": "No se necesita experiencia ni calificaciones. Un programa de formación práctico único en Kagoshima, dirigido directamente por el fundador Shingo Fukuda.",
+    "bannerDesc": "Sin cualificaciones ni experiencia. No dudes en contactarnos.",
+    "bannerCta": "Solicitar registro como asistente (gratis)",
+    "ctaSectionTitle": "Tu experiencia se convierte en el viaje de alguien",
+    "ctaSectionDesc": "Damos la bienvenida a quienes aman el cuidado, los viajes o quieren ayudar."
   },
   "training": {
     "pageTitle": "Programa de formación",

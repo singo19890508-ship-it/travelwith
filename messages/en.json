@@ -33,7 +33,8 @@
     "travelerApply": "Traveler Application",
     "supporterRegister": "Caregiver Registration",
     "applyButton": "Apply",
-    "registerButton": "Register"
+    "registerButton": "Register",
+    "tours": "Tours"
   },
   "footer": {
     "description": "A matching service connecting travelers who need physical support with experienced caregivers in Kagoshima.",
@@ -156,7 +157,10 @@
     "step6Note": "Via survey or phone call",
     "ctaTitle": "Ready to consult with us?",
     "ctaDescription": "Even if you're not sure whether you can travel, that's completely fine.",
-    "ctaButton": "Contact & Consult"
+    "ctaButton": "Contact & Consult",
+    "ctaSectionTitle": "Ready to Take the First Step?",
+    "ctaSectionDesc": "Whether in the planning stage or with a specific request, we are here to listen.",
+    "ctaSectionButton": "Apply as a Traveler (Free)"
   },
   "safety": {
     "pageTitle": "Safety & Security",
@@ -358,7 +362,11 @@
     "ctaTraining": "View Training Program",
     "trainingLabel": "TRAINING PROGRAM",
     "trainingTitle": "Travel Supporter Training Course",
-    "trainingDesc": "No experience required. A hands-on training program unique to Kagoshima, led directly by founder Shingo Fukuda."
+    "trainingDesc": "No experience required. A hands-on training program unique to Kagoshima, led directly by founder Shingo Fukuda.",
+    "bannerDesc": "No qualifications or experience required. Feel free to contact us.",
+    "bannerCta": "Apply to Register as a Supporter (Free)",
+    "ctaSectionTitle": "Your Experience Becomes Someone's Journey",
+    "ctaSectionDesc": "We welcome those who love care, travel, or simply want to help others."
   },
   "training": {
     "pageTitle": "Training Program",

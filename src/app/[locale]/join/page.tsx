@@ -51,22 +51,20 @@ export default async function JoinPage({
       <Header />
       <main>
         <PageHeader
-          title="介助者になる"
-          description="旅を諦めてきた人の、初めての一歩を一緒に作りませんか"
+          title={t("pageTitle")}
+          description={t("pageDescription")}
           color="teal"
         />
 
         {/* CTAバナー */}
         <section className="bg-teal-600 text-white py-8 px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-white/80 text-sm mb-4">
-              資格・経験がなくても大丈夫。まずはお気軽にご連絡ください。
-            </p>
+            <p className="text-white/80 text-sm mb-4">{t("bannerDesc")}</p>
             <Link
               href="/supporter/register"
               className="inline-block px-8 py-3 bg-white text-teal-700 font-bold rounded-xl hover:bg-teal-50 transition-colors shadow-sm"
             >
-              サポーター登録を申し込む（無料）
+              {t("bannerCta")}
             </Link>
           </div>
         </section>
@@ -271,9 +269,9 @@ export default async function JoinPage({
         </section>
 
         <CtaSection
-          title="あなたの経験が、誰かの旅になる"
-          description="介護や旅行が好きな方、人の役に立ちたい方を歓迎します。"
-          primaryLabel="サポーター登録を申し込む（無料）"
+          title={t("ctaSectionTitle")}
+          description={t("ctaSectionDesc")}
+          primaryLabel={t("bannerCta")}
           primaryHref="/supporter/register"
         />
       </main>

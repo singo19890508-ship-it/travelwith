@@ -20,9 +20,9 @@
   },
   "header": {
     "home": "홈",
-    "flow": "이용 방법",
+    "flow": "여행 계획",
     "caregivers": "개호인 소개",
-    "join": "개호인이 되려면",
+    "join": "서포터 되기",
     "safety": "안심·안전",
     "faq": "FAQ",
     "contact": "문의",
@@ -33,7 +33,8 @@
     "travelerApply": "여행자 신청",
     "supporterRegister": "개호인 등록",
     "applyButton": "신청",
-    "registerButton": "등록"
+    "registerButton": "등록",
+    "tours": "투어"
   },
   "footer": {
     "description": "신체적 지원이 필요한 여행자와 경험 있는 개호인을 연결하는 매칭 서비스입니다.",
@@ -156,7 +157,10 @@
     "step6Note": "설문 또는 전화로",
     "ctaTitle": "먼저 상담해 보실래요?",
     "ctaDescription": "\"갈 수 있을지 모르겠다\"는 단계에서도 괜찮습니다.",
-    "ctaButton": "상담·문의하기"
+    "ctaButton": "상담·문의하기",
+    "ctaSectionTitle": "첫걸음을 내딛어 보시겠어요?",
+    "ctaSectionDesc": "여행 계획 단계이든, 구체적인 의뢰이든, 무엇이든 말씀해 주세요.",
+    "ctaSectionButton": "여행자로 신청하기（무료）"
   },
   "safety": {
     "pageTitle": "안심·안전을 위한 노력",
@@ -358,7 +362,11 @@
     "ctaTraining": "연수 안내 보기",
     "trainingLabel": "TRAINING PROGRAM",
     "trainingTitle": "여행 서포터 육성 강좌",
-    "trainingDesc": "자격・경험이 없어도 괜찮습니다. 회장 후쿠다 신고가 직접 지도하는 가고시마만의 실천형 양성 프로그램입니다."
+    "trainingDesc": "자격・경험이 없어도 괜찮습니다. 회장 후쿠다 신고가 직접 지도하는 가고시마만의 실천형 양성 프로그램입니다.",
+    "bannerDesc": "자격·경험이 없어도 괜찮아요. 먼저 편하게 연락해 주세요.",
+    "bannerCta": "서포터 등록 신청하기（무료）",
+    "ctaSectionTitle": "당신의 경험이 누군가의 여행이 됩니다",
+    "ctaSectionDesc": "돌봄이나 여행을 좋아하는 분, 누군가에게 도움이 되고 싶은 분을 환영합니다."
   },
   "training": {
     "pageTitle": "연수 안내",

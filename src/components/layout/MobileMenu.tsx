@@ -9,10 +9,10 @@ export default function MobileMenu() {
   const t = useTranslations("header");
 
   const navItems = [
-    { href: "/tours", label: "ツアー" },
-    { href: "/flow", label: "旅行に行く" },
-    { href: "/join", label: "介助者になる" },
-    { href: "/faq", label: "Q&A" },
+    { href: "/tours", label: t("tours") },
+    { href: "/flow", label: t("flow") },
+    { href: "/join", label: t("join") },
+    { href: "/faq", label: t("faq") },
   ];
 
   return (

@@ -157,8 +157,8 @@ export default async function FlowPage({
       <Header />
       <main>
         <PageHeader
-          title="旅行に行く"
-          description="安心して旅に出るために、まずここから始めましょう"
+          title={t("pageTitle")}
+          description={t("pageDescription")}
           color="blue"
           imageUrl="/images/real/onsen-support.jpg"
         />
@@ -263,9 +263,9 @@ export default async function FlowPage({
           </div>
         </section>
         <CtaSection
-          title="一歩踏み出してみませんか"
-          description="旅行の計画段階でも、具体的なご依頼でも、何でもお聞きします。"
-          primaryLabel="旅行者として申し込む（無料）"
+          title={t("ctaSectionTitle")}
+          description={t("ctaSectionDesc")}
+          primaryLabel={t("ctaSectionButton")}
           primaryHref="/traveler/apply"
         />
       </main>

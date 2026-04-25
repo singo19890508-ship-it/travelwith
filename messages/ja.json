@@ -20,9 +20,9 @@
   },
   "header": {
     "home": "ホーム",
-    "flow": "利用の流れ",
+    "flow": "旅行に行く",
     "caregivers": "介助者紹介",
-    "join": "介助者になるには",
+    "join": "介助者になる",
     "safety": "安心・安全",
     "faq": "FAQ",
     "contact": "お問い合わせ",
@@ -33,7 +33,8 @@
     "travelerApply": "旅行者申込",
     "supporterRegister": "サポーター登録",
     "applyButton": "申し込む",
-    "registerButton": "サポーター登録"
+    "registerButton": "サポーター登録",
+    "tours": "ツアー"
   },
   "footer": {
     "description": "障害がある方・高齢者・医療的ケアが必要な方の旅を、専門スタッフがサポートします。鹿児島から、諦めなくていい旅を届けます。",
@@ -129,8 +130,8 @@
     "registerButtonOld": "サポーターとして登録する"
   },
   "flow": {
-    "pageTitle": "利用の流れ",
-    "pageDescription": "相談から旅行まで、6つのステップで丁寧にサポートします。",
+    "pageTitle": "旅行に行く",
+    "pageDescription": "安心して旅に出るために、まずここから始めましょう",
     "intro": "はじめての方も、どうぞご安心ください。スタッフが丁寧に一緒に進めます。",
     "step1Number": "01",
     "step1Title": "ご相談",
@@ -158,7 +159,10 @@
     "step6Note": "アンケートまたはお電話で",
     "ctaTitle": "まず、相談してみませんか？",
     "ctaDescription": "「行けるかどうかわからない」という段階でも大丈夫です。",
-    "ctaButton": "相談する・お問い合わせ"
+    "ctaButton": "相談する・お問い合わせ",
+    "ctaSectionTitle": "一歩踏み出してみませんか",
+    "ctaSectionDesc": "旅行の計画段階でも、具体的なご依頼でも、何でもお聞きします。",
+    "ctaSectionButton": "旅行者として申し込む（無料）"
   },
   "safety": {
     "pageTitle": "安心・安全への取り組み",
@@ -479,8 +483,8 @@
     "cat10": "ご利用方法"
   },
   "join": {
-    "pageTitle": "介助者になるには",
-    "pageDescription": "介護・福祉の経験を活かして、旅に同行するお仕事です。",
+    "pageTitle": "介助者になる",
+    "pageDescription": "旅を諦めてきた人の、初めての一歩を一緒に作りませんか",
     "intro": "「旅を諦めている人の力になりたい」そんな思いを持つ方を歓迎します。資格・経験の有無に関わらず、まずはご相談ください。",
     "whyTitle": "こんな方に向いています",
     "why1Title": "介護・福祉の経験がある方",
@@ -519,7 +523,11 @@
     "ctaTraining": "研修案内を見る",
     "trainingLabel": "TRAINING PROGRAM",
     "trainingTitle": "旅行サポーター育成講座",
-    "trainingDesc": "資格・経験がなくても大丈夫。鹿児島にしかない、鹿児島で活躍できる実践型の養成プログラムです。"
+    "trainingDesc": "資格・経験がなくても大丈夫。鹿児島にしかない、鹿児島で活躍できる実践型の養成プログラムです。",
+    "bannerDesc": "資格・経験がなくても大丈夫。まずはお気軽にご連絡ください。",
+    "bannerCta": "サポーター登録を申し込む（無料）",
+    "ctaSectionTitle": "あなたの経験が、誰かの旅になる",
+    "ctaSectionDesc": "介護や旅行が好きな方、人の役に立ちたい方を歓迎します。"
   },
   "training": {
     "pageTitle": "研修案内",

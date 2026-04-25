@@ -7,10 +7,10 @@ export default async function Header() {
   const t = await getTranslations("header");
 
   const navItems = [
-    { href: "/tours", label: "ツアー" },
-    { href: "/flow", label: "旅行に行く" },
-    { href: "/join", label: "介助者になる" },
-    { href: "/faq", label: "Q&A" },
+    { href: "/tours", label: t("tours") },
+    { href: "/flow", label: t("flow") },
+    { href: "/join", label: t("join") },
+    { href: "/faq", label: t("faq") },
   ];
 
   return (

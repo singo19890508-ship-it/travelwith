@@ -20,9 +20,9 @@
   },
   "header": {
     "home": "首页",
-    "flow": "使用流程",
+    "flow": "旅行计划",
     "caregivers": "护理员介绍",
-    "join": "成为护理员",
+    "join": "成为助行者",
     "safety": "安心·安全",
     "faq": "常见问题",
     "contact": "联系我们",
@@ -33,7 +33,8 @@
     "travelerApply": "旅行者申请",
     "supporterRegister": "护理员注册",
     "applyButton": "申请",
-    "registerButton": "注册"
+    "registerButton": "注册",
+    "tours": "旅游"
   },
   "footer": {
     "description": "为需要身体支援的旅行者与经验丰富的护理员牵线搭桥的匹配服务。",
@@ -156,7 +157,10 @@
     "step6Note": "问卷或电话",
     "ctaTitle": "要不要先来咨询一下？",
     "ctaDescription": "即使处于「不知道能否旅行」的阶段也完全没关系。",
-    "ctaButton": "咨询·联系我们"
+    "ctaButton": "咨询·联系我们",
+    "ctaSectionTitle": "迈出第一步吧",
+    "ctaSectionDesc": "无论是旅行计划阶段，还是具体请求，我们都愿意倾听。",
+    "ctaSectionButton": "作为旅行者申请（免费）"
   },
   "safety": {
     "pageTitle": "安心·安全保障",
@@ -358,7 +362,11 @@
     "ctaTraining": "查看培训介绍",
     "trainingLabel": "TRAINING PROGRAM",
     "trainingTitle": "旅行支援者培训课程",
-    "trainingDesc": "无需资格和经验。由会长福田真悟亲自指导，这是鹿儿岛独有的实践型培养课程。"
+    "trainingDesc": "无需资格和经验。由会长福田真悟亲自指导，这是鹿儿岛独有的实践型培养课程。",
+    "bannerDesc": "没有资格或经验也没关系。请随时与我们联系。",
+    "bannerCta": "申请注册为支援者（免费）",
+    "ctaSectionTitle": "您的经验成就别人的旅途",
+    "ctaSectionDesc": "欢迎喜欢护理或旅游、想要帮助他人的朋友。"
   },
   "training": {
     "pageTitle": "培训介绍",
