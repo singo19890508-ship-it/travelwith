@@ -319,17 +319,21 @@ export default function AdminToursPage() {
 
   const save = async (updated: Tour[]) => {
     setSaving(true);
-    const res = await fetch("/api/admin/tours", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updated),
-    });
-    setSaving(false);
-    if (res.ok) {
-      showToast("保存しました ✓");
+    try {
+      const res = await fetch("/api/admin/tours", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updated),
+      });
+      if (!res.ok) throw new Error("保存失敗");
       setTours(updated);
-    } else {
+      showToast("📤 本番に反映中...");
+      await fetch("/api/admin/git-push", { method: "POST" });
+      showToast("✅ 保存＆本番反映完了！（2〜3分で反映）");
+    } catch {
       showToast("保存に失敗しました", "err");
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -395,14 +399,9 @@ export default function AdminToursPage() {
       </div>
 
       {/* 注意書き */}
-      <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 mb-6 text-sm text-blue-700">
-        💡 保存後、本番サイトへの反映には{" "}
-        <strong>git push → Vercel 自動デプロイ（2〜3分）</strong> が必要です。
-        ローカルの{" "}
-        <code className="bg-blue-100 px-1 rounded text-xs">
-          http://localhost:3000/tours
-        </code>{" "}
-        では即反映されます。
+      <div className="bg-green-50 border border-green-200 rounded-xl p-3 mb-6 text-sm text-green-700">
+        ✅
+        保存ボタンを押すと、自動的に本番サイト（fuku-tabi.com）へ反映されます。反映まで約2〜3分かかります。
       </div>
 
       {/* 新規追加フォーム */}

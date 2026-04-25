@@ -271,6 +271,12 @@ export default function ContentEditorPage() {
 
   const hasDirty = Object.keys(dirty).length > 0;
 
+  const gitPush = async () => {
+    const res = await fetch("/api/admin/git-push", { method: "POST" });
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error ?? "git push 失敗");
+  };
+
   const save = async () => {
     setSaving(true);
     try {
@@ -289,9 +295,11 @@ export default function ContentEditorPage() {
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "保存失敗");
       setDirty({});
+      setToast({ type: "success", msg: "📤 本番に反映中..." });
+      await gitPush();
       setToast({
         type: "success",
-        msg: "✅ 保存しました！git push で本番に反映されます。",
+        msg: "✅ 保存＆本番反映完了！（2〜3分で fuku-tabi.com に反映）",
       });
     } catch (err) {
       setToast({
@@ -306,16 +314,23 @@ export default function ContentEditorPage() {
   // ギャラリー保存
   const saveGallery = async () => {
     setGallerySaving(true);
-    const res = await fetch("/api/admin/gallery", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(gallery),
-    });
-    setGallerySaving(false);
-    if (res.ok) {
-      setToast({ type: "success", msg: "✅ ギャラリーを保存しました！" });
-    } else {
-      setToast({ type: "error", msg: "保存に失敗しました" });
+    try {
+      const res = await fetch("/api/admin/gallery", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(gallery),
+      });
+      if (!res.ok) throw new Error("保存失敗");
+      setToast({ type: "success", msg: "📤 本番に反映中..." });
+      await gitPush();
+      setToast({ type: "success", msg: "✅ ギャラリー保存＆本番反映完了！" });
+    } catch (err) {
+      setToast({
+        type: "error",
+        msg: err instanceof Error ? err.message : "保存に失敗しました",
+      });
+    } finally {
+      setGallerySaving(false);
     }
   };
 
@@ -447,9 +462,7 @@ export default function ContentEditorPage() {
                   ギャラリー写真（TOPページ）
                 </p>
                 <p className="text-blue-600 text-xs mt-0.5">
-                  写真のURLを貼り付けて「保存する」を押してください。保存後{" "}
-                  <code className="bg-blue-100 px-1 rounded">git push</code>{" "}
-                  で本番反映。
+                  写真のURLを貼り付けて「保存する」を押してください。保存すると自動で本番サイトに反映されます（約2〜3分）。
                 </p>
               </div>
             </div>
@@ -562,10 +575,7 @@ export default function ContentEditorPage() {
                   {currentSection.title}
                 </p>
                 <p className="text-blue-600 text-xs mt-0.5">
-                  変更後「変更を保存」→
-                  ローカルのファイルに書き込まれます。本番に反映するには{" "}
-                  <code className="bg-blue-100 px-1 rounded">git push</code>{" "}
-                  が必要です。
+                  「変更を保存」を押すと自動で本番サイト（fuku-tabi.com）に反映されます。反映まで約2〜3分。
                 </p>
               </div>
             </div>
