@@ -82,7 +82,7 @@ export default async function HeroSection() {
 
       {/* コンテンツ */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-        <div className="max-w-xl">
+        <div className="max-w-lg">
           {/* バッジ */}
           <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide backdrop-blur-sm">
             <span className="w-2 h-2 bg-wagold-400 rounded-full animate-pulse" />
@@ -111,29 +111,6 @@ export default async function HeroSection() {
                 {s.label}
               </div>
             ))}
-          </div>
-
-          {/* CTA ボタン */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-satsuma-700 font-bold text-lg rounded-xl hover:bg-sunaha-100 transition-colors shadow-xl"
-            >
-              {t("applyButton")}
-              <svg
-                className="ml-2 w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </Link>
           </div>
         </div>
       </div>
