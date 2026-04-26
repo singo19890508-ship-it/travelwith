@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CtaSection from "@/components/common/CtaSection";
+
 import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({
@@ -557,13 +557,6 @@ export default async function JoinPage({
             </div>
           </div>
         </section>
-
-        <CtaSection
-          title={t("ctaSectionTitle")}
-          description={t("ctaSectionDesc")}
-          primaryLabel={t("bannerCta")}
-          primaryHref="/supporter/register"
-        />
       </main>
       <Footer />
     </>
