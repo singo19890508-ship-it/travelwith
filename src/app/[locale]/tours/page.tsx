@@ -1,16 +1,23 @@
-import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import fs from "fs";
 import path from "path";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "ツアー一覧 | FUKU-TABI",
-  description:
-    "車椅子・介護が必要な方向けの鹿児島バリアフリーツアー。福祉タクシー＋介助サポーター付きで、安心して旅を楽しめます。",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  return {
+    title: t("toursTitle"),
+    description: t("toursDescription"),
+  };
+}
 
 type Tour = {
   id: string;
@@ -41,7 +48,15 @@ function loadTours(): Tour[] {
   }
 }
 
-export default function ToursPage() {
+export default async function ToursPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("tours");
   const tours = loadTours();
 
   return (
@@ -55,12 +70,10 @@ export default function ToursPage() {
               TOURS
             </span>
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              バリアフリーツアー
+              {t("pageTitle")}
             </h1>
             <p className="text-satsuma-100 text-lg max-w-2xl mx-auto leading-relaxed">
-              福祉タクシー＋介助サポーターがセットになった、
-              鹿児島のバリアフリーツアーをご用意しています。
-              「移動」「介助」「観光」すべてお任せください。
+              {t("pageDescription")}
             </p>
           </div>
         </section>
@@ -68,11 +81,11 @@ export default function ToursPage() {
         {/* 準備中バナー */}
         <div className="bg-amber-50 border-b border-amber-200 py-3 px-4 text-center">
           <p className="text-amber-700 text-sm font-medium">
-            ⚡ 現在ツアーを準備中です。詳細・予約は
+            ⚡ {t("preparingBanner")}
             <Link href="/traveler/apply" className="underline font-bold ml-1">
-              まずご相談
+              {t("preparingLink")}
             </Link>
-            ください。
+            。
           </p>
         </div>
 
@@ -98,7 +111,7 @@ export default function ToursPage() {
                       />
                     ) : (
                       <span className="text-gray-400 text-sm">
-                        写真（準備中）
+                        {t("noPhoto")}
                       </span>
                     )}
                     <span
@@ -200,7 +213,7 @@ export default function ToursPage() {
                         href="/traveler/apply"
                         className="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-2.5 rounded-xl transition-colors text-sm"
                       >
-                        申し込む・相談する
+                        {t("applyButton")}
                       </Link>
                     </div>
                   </div>
@@ -214,17 +227,16 @@ export default function ToursPage() {
         <section className="py-14 px-4 bg-gray-50">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              希望のツアーが見当たらない方へ
+              {t("customTitle")}
             </h2>
             <p className="text-gray-500 mb-8 leading-relaxed">
-              行きたい場所・泊まりたい宿・必要な介助内容をお聞かせください。
-              オーダーメイドのプランをご提案します。
+              {t("customDesc")}
             </p>
             <Link
               href="/traveler/apply"
               className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-3 rounded-xl transition-colors"
             >
-              お問い合わせ・ご相談
+              {t("customButton")}
             </Link>
           </div>
         </section>

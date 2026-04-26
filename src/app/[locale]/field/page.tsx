@@ -1,13 +1,18 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getPublishedPosts } from "@/lib/field-posts";
 
-export async function generateMetadata() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "field" });
   return {
-    title: "サポート日記 | FUKU-TABI",
-    description:
-      "旅を諦めてきた方と一緒に旅してきた、現場からの記録。写真と言葉で綴ります。",
+    title: t("pageTitle") + " | FUKU-TABI",
+    description: t("pageDescription"),
   };
 }
 
@@ -19,6 +24,7 @@ export default async function FieldPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations("field");
   const posts = await getPublishedPosts();
 
   return (
@@ -29,15 +35,13 @@ export default async function FieldPage({
         <section className="bg-satsuma-800 text-white py-14 px-4 text-center">
           <div className="max-w-2xl mx-auto">
             <p className="text-wagold-400 font-semibold text-sm mb-3">
-              SUPPORT DIARY
+              {t("badge")}
             </p>
             <h1 className="text-2xl md:text-3xl font-bold mb-4">
-              サポート日記
+              {t("heading")}
             </h1>
             <p className="text-white/80 text-sm leading-relaxed">
-              旅を諦めてきた方と一緒に旅してきた、現場からの記録。
-              <br />
-              写真と言葉で、ありのままを綴ります。
+              {t("subheading")}
             </p>
           </div>
         </section>
@@ -46,8 +50,8 @@ export default async function FieldPage({
         <section className="max-w-2xl mx-auto px-4 py-14">
           {posts.length === 0 ? (
             <div className="text-center text-gray-400 py-20">
-              <p className="text-lg mb-2">まだ投稿はありません</p>
-              <p className="text-sm">もうしばらくお待ちください。</p>
+              <p className="text-lg mb-2">{t("emptyTitle")}</p>
+              <p className="text-sm">{t("emptyDesc")}</p>
             </div>
           ) : (
             <div className="space-y-10">
@@ -69,7 +73,7 @@ export default async function FieldPage({
                     <p className="text-xs text-gray-400 mb-2">
                       {post.published_at
                         ? new Date(post.published_at).toLocaleDateString(
-                            "ja-JP",
+                            locale,
                             {
                               year: "numeric",
                               month: "long",

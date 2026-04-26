@@ -170,11 +170,16 @@ export default async function JoinPage({
             {/* カリキュラム5章サマリー */}
             <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mb-8">
               {[
-                { num: "01", title: "使命と哲学", icon: "🌱" },
-                { num: "02", title: "知識の基礎", icon: "📚" },
-                { num: "03", title: "実践スキル", icon: "♨️", highlight: true },
-                { num: "04", title: "旅行サポート実践", icon: "🍵" },
-                { num: "05", title: "働き方・コミュニティ", icon: "🤝" },
+                { num: "01", title: t("ch1Title"), icon: "🌱" },
+                { num: "02", title: t("ch2Title"), icon: "📚" },
+                {
+                  num: "03",
+                  title: t("ch3Title"),
+                  icon: "♨️",
+                  highlight: true,
+                },
+                { num: "04", title: t("ch4Title"), icon: "🍵" },
+                { num: "05", title: t("ch5Title"), icon: "🤝" },
               ].map((ch) => (
                 <div
                   key={ch.num}
@@ -192,7 +197,9 @@ export default async function JoinPage({
                     {ch.title}
                   </p>
                   {ch.highlight && (
-                    <p className="text-xs text-wagold-600 mt-1">★ 核心スキル</p>
+                    <p className="text-xs text-wagold-600 mt-1">
+                      {t("ch3Highlight")}
+                    </p>
                   )}
                 </div>
               ))}
@@ -203,17 +210,18 @@ export default async function JoinPage({
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="flex-1">
                   <p className="font-bold text-wagold-300 text-sm mb-2">
-                    鹿児島ならではの核心スキル
+                    {t("highlightBadge")}
                   </p>
-                  <h3 className="font-bold text-xl mb-3">温泉入浴介助</h3>
+                  <h3 className="font-bold text-xl mb-3">
+                    {t("highlightTitle")}
+                  </h3>
                   <p className="text-white/80 text-sm leading-relaxed">
-                    「温泉に入りたいけど、一人では無理」——そんな方が鹿児島にはたくさんいます。
-                    福田が鹿児島県内全域で積み上げた入浴介助の実績を直接学べるのは、このプログラムだけです。
+                    {t("highlightDesc")}
                   </p>
                 </div>
                 <div className="flex-shrink-0 text-center">
                   <div className="text-5xl mb-2">♨️</div>
-                  <p className="text-xs text-white/60">第03章にて実技演習</p>
+                  <p className="text-xs text-white/60">{t("highlightSub")}</p>
                 </div>
               </div>
             </div>
@@ -221,20 +229,11 @@ export default async function JoinPage({
             {/* 概要テーブル */}
             <div className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden mb-8">
               {[
-                {
-                  label: "全体時間",
-                  value: "約12時間（半日×3回 または 1日×2回）",
-                },
-                { label: "場所", value: "鹿児島市内＋ オンライン録画視聴" },
-                {
-                  label: "初回開催",
-                  value: "2026年11月（法人設立後・先着順）",
-                },
-                { label: "参加費", value: "有料（説明会にて詳細案内）" },
-                {
-                  label: "修了後",
-                  value: "FUKU-TABI 認定旅行サポーターとして活動可",
-                },
+                { label: t("fmt1Label"), value: t("fmt1Value") },
+                { label: t("fmt2Label"), value: t("fmt2Value") },
+                { label: t("fmt3Label"), value: t("fmt3Value") },
+                { label: t("fmt4Label"), value: t("fmt4Value") },
+                { label: t("fmt5Label"), value: t("fmt5Value") },
               ].map((row, i) => (
                 <div
                   key={row.label}
@@ -256,13 +255,13 @@ export default async function JoinPage({
                 href="/training#register"
                 className="inline-flex items-center justify-center px-8 py-3 bg-satsuma-600 text-white font-bold rounded-xl hover:bg-satsuma-700 transition-colors shadow-sm"
               >
-                仮登録する（無料）
+                {t("registerBtn")}
               </Link>
               <Link
                 href="/training"
                 className="inline-flex items-center justify-center px-8 py-3 bg-white text-satsuma-700 font-bold rounded-xl border border-satsuma-300 hover:bg-satsuma-50 transition-colors"
               >
-                カリキュラム詳細を見る
+                {t("detailBtn")}
               </Link>
             </div>
           </div>

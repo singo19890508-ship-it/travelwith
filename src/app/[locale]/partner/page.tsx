@@ -1,32 +1,48 @@
-import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "連携パートナー | FUKU-TABI",
-  description:
-    "FUKU-TABIが連携する福祉タクシー会社をご紹介します。車椅子対応車両・有資格ドライバーで、移動の不安をゼロにします。",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  return {
+    title: t("partnerTitle"),
+    description: t("partnerDescription"),
+  };
+}
 
-const vehicleFeatures = [
-  "車椅子リフト付き（電動車椅子対応）",
-  "ストレッチャー対応車両あり",
-  "乗降介助・移乗サポート",
-  "鹿児島空港・鹿児島中央駅からの直接送迎",
-  "観光地間のチャーター運行",
-  "緊急時の対応マニュアル整備済み",
-];
+export default async function PartnerPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
-const driverQualifications = [
-  "介護福祉士",
-  "介護職員初任者研修（旧ヘルパー2級）修了",
-  "福祉有償運送運転者講習修了",
-  "普通・大型第二種運転免許",
-];
+  const t = await getTranslations("partner");
 
-export default function PartnerPage() {
+  const vehicleFeatures = [
+    t("vehicle1"),
+    t("vehicle2"),
+    t("vehicle3"),
+    t("vehicle4"),
+    t("vehicle5"),
+    t("vehicle6"),
+  ];
+
+  const driverQualifications = [
+    t("driver1"),
+    t("driver2"),
+    t("driver3"),
+    t("driver4"),
+  ];
+
   return (
     <>
       <Header />
@@ -38,11 +54,10 @@ export default function PartnerPage() {
               PARTNER
             </span>
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              連携パートナー
+              {t("pageTitle")}
             </h1>
             <p className="text-teal-100 text-lg max-w-2xl mx-auto leading-relaxed">
-              FUKU-TABIは、鹿児島の福祉タクシー会社と正式に連携しています。
-              旅のすべての移動を、安心してお任せください。
+              {t("pageDescription")}
             </p>
           </div>
         </section>
@@ -55,17 +70,12 @@ export default function PartnerPage() {
                 <span className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center text-teal-700 font-bold text-sm">
                   ✓
                 </span>
-                なぜ福祉タクシーとの連携が重要なのか
+                {t("whyTitle")}
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                旅行を諦める理由の多くは「移動できるか不安」という一点につきます。
-                介護タクシーを個人で手配するのは複雑で、旅先での急な変更にも対応しにくい。
+                {t("whyDesc1")}
               </p>
-              <p className="text-gray-600 leading-relaxed">
-                FUKU-TABIは旅行計画の段階から移動手段を確保し、
-                サポーター・ドライバー・旅行者の三者が連携して旅を実現します。
-                「移動」は旅の入り口です。ここを安心に変えることが、私たちの使命です。
-              </p>
+              <p className="text-gray-600 leading-relaxed">{t("whyDesc2")}</p>
             </div>
           </div>
         </section>
@@ -74,27 +84,27 @@ export default function PartnerPage() {
         <section className="py-14 px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-800 mb-3 text-center">
-              実際のサポートの様子
+              {t("photosTitle")}
             </h2>
             <p className="text-center text-gray-500 text-sm mb-8">
-              ※ 掲載写真はご本人の同意を得て使用しています。
+              {t("photosNote")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
               {[
                 {
                   src: "/images/real/onsen-support.jpg",
-                  alt: "温泉での入浴介助サポート",
-                  caption: "温泉入浴介助",
+                  alt: t("photo1Alt"),
+                  caption: t("photo1Caption"),
                 },
                 {
                   src: "/images/real/hotel-lobby.jpg",
-                  alt: "ホテルでくつろぐ旅行者",
-                  caption: "ホテルでひと休み",
+                  alt: t("photo2Alt"),
+                  caption: t("photo2Caption"),
                 },
                 {
                   src: "/images/real/china-town.jpg",
-                  alt: "中華街を観光する様子",
-                  caption: "神戸中華街を散策",
+                  alt: t("photo3Alt"),
+                  caption: t("photo3Caption"),
                 },
               ].map((photo, i) => (
                 <div
@@ -120,7 +130,7 @@ export default function PartnerPage() {
             <div className="relative rounded-2xl overflow-hidden shadow-md h-72 md:h-96">
               <Image
                 src="/images/real/onsen-support.jpg"
-                alt="温泉での入浴介助。サポーターと旅行者の笑顔。"
+                alt={t("featuredAlt")}
                 fill
                 sizes="100vw"
                 className="object-cover object-top"
@@ -128,10 +138,10 @@ export default function PartnerPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
                 <div>
                   <p className="text-white font-bold text-xl mb-1">
-                    「温泉に入れると思っていなかった。」
+                    {t("featuredQuote")}
                   </p>
                   <p className="text-white/80 text-sm">
-                    — 小牧様（80代・車椅子ご利用）/ 旅行サポート実績より
+                    {t("featuredQuoteCredit")}
                   </p>
                 </div>
               </div>
@@ -143,25 +153,23 @@ export default function PartnerPage() {
         <section className="py-14 px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
-              連携タクシー会社
+              {t("taxiTitle")}
             </h2>
 
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-              {/* プレースホルダー：後で差し替え */}
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-full md:w-48 h-32 bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 text-sm flex-shrink-0">
-                  ロゴ・写真（準備中）
+                  {t("taxiLogoPlaceholder")}
                 </div>
                 <div className="flex-1">
                   <div className="inline-block bg-teal-100 text-teal-700 text-xs font-bold px-2 py-0.5 rounded mb-2">
-                    鹿児島市内・近郊対応
+                    {t("taxiAreaBadge")}
                   </div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    （タクシー会社名 掲載予定）
+                    {t("taxiName")}
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                    鹿児島市内を中心に、空港・駅・観光地間の福祉輸送を行う専門会社です。
-                    FUKU-TABIのツアーに合わせた専属対応が可能です。
+                    {t("taxiDesc")}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {vehicleFeatures.map((f, i) => (
@@ -196,7 +204,7 @@ export default function PartnerPage() {
         <section className="py-14 px-4 bg-gray-50">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
-              ドライバーの資格・研修
+              {t("driverTitle")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {driverQualifications.map((q, i) => (
@@ -229,23 +237,20 @@ export default function PartnerPage() {
         {/* CTA */}
         <section className="py-14 px-4 bg-teal-700 text-white text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4">まずはご相談ください</h2>
-            <p className="text-teal-100 mb-8 leading-relaxed">
-              移動手段・送迎エリア・車両の空き状況など、
-              お気軽にお問い合わせください。
-            </p>
+            <h2 className="text-2xl font-bold mb-4">{t("ctaTitle")}</h2>
+            <p className="text-teal-100 mb-8 leading-relaxed">{t("ctaDesc")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/traveler/apply"
                 className="bg-white text-teal-700 font-bold px-6 py-3 rounded-xl hover:bg-teal-50 transition-colors"
               >
-                旅行を申し込む
+                {t("ctaApply")}
               </Link>
               <Link
                 href="/tours"
                 className="border border-white text-white font-bold px-6 py-3 rounded-xl hover:bg-teal-600 transition-colors"
               >
-                ツアーを見る
+                {t("ctaTours")}
               </Link>
             </div>
           </div>
