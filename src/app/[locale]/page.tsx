@@ -21,8 +21,6 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/top/HeroSection";
 import TourGallery from "@/components/top/TourGallery";
 import FlowPreview from "@/components/top/FlowPreview";
-import CtaBanner from "@/components/top/CtaBanner";
-
 export default async function HomePage({
   params,
 }: {
@@ -38,7 +36,6 @@ export default async function HomePage({
         <HeroSection />
         <TourGallery />
         <FlowPreview />
-        <CtaBanner />
       </main>
       <Footer />
     </>
