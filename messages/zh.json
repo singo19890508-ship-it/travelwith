@@ -88,7 +88,9 @@
     "step2Desc": "确认需求后，为您推荐最合适的护理员。",
     "step3Title": "一起享受旅行",
     "step3Desc": "护理员全程陪同，从出发到回家提供安心支援。",
-    "detailLink": "查看详细流程"
+    "detailLink": "查看详细流程",
+    "step4Title": "反馈 & 下次旅行",
+    "step4Desc": "旅行结束后听取您的感想，不断改善以使下次旅行更加美好。"
   },
   "safetyTeaser": {
     "title": "安心·安全保障",

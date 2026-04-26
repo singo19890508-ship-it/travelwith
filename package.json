@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "i18n:check": "node scripts/check-i18n-keys.js",
+    "i18n:fix": "node scripts/check-i18n-keys.js --fix"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.88.0",
