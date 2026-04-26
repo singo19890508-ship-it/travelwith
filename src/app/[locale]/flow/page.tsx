@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import PageHeader from "@/components/common/PageHeader";
 import CtaSection from "@/components/common/CtaSection";
 import { Link } from "@/i18n/navigation";
 
@@ -156,12 +155,471 @@ export default async function FlowPage({
     <>
       <Header />
       <main>
-        <PageHeader
-          title={t("pageTitle")}
-          description={t("pageDescription")}
-          color="blue"
-          imageUrl="/images/real/onsen-support.jpg"
-        />
+        {/* SVG線画ヒーロー */}
+        <section className="relative text-white py-20 md:py-28 overflow-hidden bg-satsuma-900">
+          {/* 線画イラスト */}
+          <svg
+            viewBox="0 0 1000 300"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute inset-0 w-full h-full"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            {/* 遠景の丘 */}
+            <path
+              d="M0 255 Q150 215 300 238 Q450 262 600 232 Q750 202 900 228 Q960 238 1000 232 L1000 300 L0 300 Z"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.18"
+              fill="white"
+              fillOpacity="0.05"
+            />
+            {/* 手前の丘 */}
+            <path
+              d="M0 278 Q200 255 400 268 Q600 282 800 258 Q900 248 1000 262 L1000 300 L0 300 Z"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.12"
+              fill="white"
+              fillOpacity="0.04"
+            />
+
+            {/* 桜島（メイン） */}
+            <path
+              d="M670 300 L748 162 L826 300"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            {/* 桜島（サブ） */}
+            <path
+              d="M720 300 L792 188 L864 300"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.32"
+            />
+            {/* 火口縁 */}
+            <path
+              d="M737 167 Q748 160 759 167"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.6"
+            />
+            {/* 噴煙 */}
+            <path
+              d="M748 158 Q743 144 750 130 Q757 116 748 102"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.38"
+              strokeLinecap="round"
+            />
+            <path
+              d="M756 162 Q763 146 758 130 Q753 114 762 100"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.28"
+              strokeLinecap="round"
+            />
+
+            {/* 太陽 */}
+            <circle
+              cx="890"
+              cy="68"
+              r="26"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            <line
+              x1="890"
+              y1="34"
+              x2="890"
+              y2="24"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            <line
+              x1="890"
+              y1="102"
+              x2="890"
+              y2="112"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            <line
+              x1="856"
+              y1="68"
+              x2="846"
+              y2="68"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            <line
+              x1="924"
+              y1="68"
+              x2="934"
+              y2="68"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            <line
+              x1="866"
+              y1="42"
+              x2="859"
+              y2="35"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            <line
+              x1="914"
+              y1="94"
+              x2="921"
+              y2="101"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            <line
+              x1="914"
+              y1="42"
+              x2="921"
+              y2="35"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            <line
+              x1="866"
+              y1="94"
+              x2="859"
+              y2="101"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+
+            {/* 鳥 */}
+            <path
+              d="M140 55 Q149 49 158 55"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.5"
+            />
+            <path
+              d="M168 42 Q177 36 186 42"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.5"
+            />
+            <path
+              d="M200 68 Q209 62 218 68"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.4"
+            />
+            <path
+              d="M558 42 Q567 36 576 42"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.4"
+            />
+            <path
+              d="M586 56 Q595 50 604 56"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.35"
+            />
+
+            {/* 点線の道 */}
+            <path
+              d="M0 292 Q100 282 180 278 Q290 268 360 272 Q455 280 528 270 Q600 258 680 262"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.42"
+              strokeDasharray="14 7"
+            />
+
+            {/* 温泉マーク（山の近く） */}
+            <path
+              d="M910 188 Q906 175 911 162 Q916 149 910 136"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.38"
+              strokeLinecap="round"
+            />
+            <path
+              d="M926 192 Q922 179 927 166 Q932 153 926 140"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.3"
+              strokeLinecap="round"
+            />
+            <path
+              d="M942 188 Q938 175 943 162 Q948 149 942 136"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.25"
+              strokeLinecap="round"
+            />
+            <path
+              d="M898 202 Q920 208 952 202"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.38"
+            />
+            <path
+              d="M898 212 Q920 218 952 212"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.28"
+            />
+
+            {/* 目的地ピン */}
+            <path
+              d="M515 244 C515 235 522 228 531 228 C540 228 547 235 547 244 C547 255 531 268 531 268 C531 268 515 255 515 244 Z"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.52"
+            />
+            <circle
+              cx="531"
+              cy="243"
+              r="5"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.52"
+            />
+
+            {/* 電車シルエット（遠景） */}
+            <rect
+              x="18"
+              y="248"
+              width="82"
+              height="28"
+              rx="4"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.28"
+            />
+            <rect
+              x="26"
+              y="254"
+              width="12"
+              height="9"
+              rx="1"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.28"
+            />
+            <rect
+              x="44"
+              y="254"
+              width="12"
+              height="9"
+              rx="1"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.28"
+            />
+            <rect
+              x="62"
+              y="254"
+              width="12"
+              height="9"
+              rx="1"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.28"
+            />
+            <circle
+              cx="33"
+              cy="278"
+              r="3.5"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.28"
+            />
+            <circle
+              cx="83"
+              cy="278"
+              r="3.5"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.28"
+            />
+
+            {/* 旅行者（左寄り） */}
+            {/* 頭 */}
+            <circle cx="300" cy="195" r="18" stroke="white" strokeWidth="2.5" />
+            {/* 体 */}
+            <line
+              x1="300"
+              y1="213"
+              x2="300"
+              y2="260"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 右腕（前方へ） */}
+            <line
+              x1="300"
+              y1="228"
+              x2="328"
+              y2="242"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 左腕（スーツケースへ） */}
+            <line
+              x1="300"
+              y1="228"
+              x2="272"
+              y2="240"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 左足 */}
+            <line
+              x1="300"
+              y1="260"
+              x2="284"
+              y2="292"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 右足（踏み出し） */}
+            <line
+              x1="300"
+              y1="260"
+              x2="316"
+              y2="292"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* スーツケース本体 */}
+            <rect
+              x="250"
+              y="240"
+              width="24"
+              height="30"
+              rx="3"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            <line
+              x1="250"
+              y1="252"
+              x2="274"
+              y2="252"
+              stroke="white"
+              strokeWidth="1.5"
+            />
+            {/* ハンドル */}
+            <path
+              d="M257 240 L257 234 L267 234 L267 240"
+              stroke="white"
+              strokeWidth="2"
+            />
+            {/* キャスター */}
+            <circle cx="256" cy="270" r="3" stroke="white" strokeWidth="2" />
+            <circle cx="268" cy="270" r="3" stroke="white" strokeWidth="2" />
+            {/* 笑顔 */}
+            <path
+              d="M294 193 Q300 198 306 193"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+
+            {/* サポーター（旅行者の右・やや背高） */}
+            {/* 頭 */}
+            <circle cx="372" cy="182" r="20" stroke="white" strokeWidth="2.5" />
+            {/* 体 */}
+            <line
+              x1="372"
+              y1="202"
+              x2="372"
+              y2="256"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 左腕（旅行者へ） */}
+            <line
+              x1="372"
+              y1="222"
+              x2="330"
+              y2="238"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 右腕 */}
+            <line
+              x1="372"
+              y1="222"
+              x2="396"
+              y2="238"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 左足 */}
+            <line
+              x1="372"
+              y1="256"
+              x2="356"
+              y2="292"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 右足 */}
+            <line
+              x1="372"
+              y1="256"
+              x2="388"
+              y2="292"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 笑顔 */}
+            <path
+              d="M366 180 Q372 185 378 180"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+
+            {/* 二人の間のハート */}
+            <path
+              d="M336 212 C336 209 339 207 342 210 C345 207 348 209 348 212 C348 216 342 221 342 221 C342 221 336 216 336 212 Z"
+              stroke="white"
+              strokeWidth="1.5"
+              fill="white"
+              fillOpacity="0.3"
+              strokeOpacity="0.7"
+            />
+          </svg>
+
+          {/* グラデーションオーバーレイ（左を暗く） */}
+          <div className="absolute inset-0 bg-gradient-to-r from-satsuma-900/92 via-satsuma-800/65 to-transparent" />
+
+          {/* テキストコンテンツ */}
+          <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
+            <p className="text-satsuma-200 text-sm font-semibold tracking-widest uppercase mb-3">
+              How It Works
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+              {t("pageTitle")}
+            </h1>
+            <p className="text-white/85 text-lg md:text-xl leading-relaxed max-w-xl">
+              {t("pageDescription")}
+            </p>
+          </div>
+        </section>
 
         {/* 福祉タクシー連携バナー */}
         <section className="py-8 px-4 bg-teal-50 border-b border-teal-100">
