@@ -454,57 +454,57 @@ export default async function FlowPage({
               strokeOpacity="0.28"
             />
 
-            {/* 旅行者（左寄り） */}
+            {/* 旅行者（右エリア） */}
             {/* 頭 */}
-            <circle cx="300" cy="195" r="18" stroke="white" strokeWidth="2.5" />
+            <circle cx="480" cy="195" r="18" stroke="white" strokeWidth="2.5" />
             {/* 体 */}
             <line
-              x1="300"
+              x1="480"
               y1="213"
-              x2="300"
+              x2="480"
               y2="260"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 右腕（前方へ） */}
             <line
-              x1="300"
+              x1="480"
               y1="228"
-              x2="328"
+              x2="508"
               y2="242"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 左腕（スーツケースへ） */}
             <line
-              x1="300"
+              x1="480"
               y1="228"
-              x2="272"
+              x2="452"
               y2="240"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 左足 */}
             <line
-              x1="300"
+              x1="480"
               y1="260"
-              x2="284"
+              x2="464"
               y2="292"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 右足（踏み出し） */}
             <line
-              x1="300"
+              x1="480"
               y1="260"
-              x2="316"
+              x2="496"
               y2="292"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* スーツケース本体 */}
             <rect
-              x="250"
+              x="430"
               y="240"
               width="24"
               height="30"
@@ -513,25 +513,25 @@ export default async function FlowPage({
               strokeWidth="2.5"
             />
             <line
-              x1="250"
+              x1="430"
               y1="252"
-              x2="274"
+              x2="454"
               y2="252"
               stroke="white"
               strokeWidth="1.5"
             />
             {/* ハンドル */}
             <path
-              d="M257 240 L257 234 L267 234 L267 240"
+              d="M437 240 L437 234 L447 234 L447 240"
               stroke="white"
               strokeWidth="2"
             />
             {/* キャスター */}
-            <circle cx="256" cy="270" r="3" stroke="white" strokeWidth="2" />
-            <circle cx="268" cy="270" r="3" stroke="white" strokeWidth="2" />
+            <circle cx="436" cy="270" r="3" stroke="white" strokeWidth="2" />
+            <circle cx="448" cy="270" r="3" stroke="white" strokeWidth="2" />
             {/* 笑顔 */}
             <path
-              d="M294 193 Q300 198 306 193"
+              d="M474 193 Q480 198 486 193"
               stroke="white"
               strokeWidth="1.5"
               strokeLinecap="round"
@@ -539,55 +539,55 @@ export default async function FlowPage({
 
             {/* サポーター（旅行者の右・やや背高） */}
             {/* 頭 */}
-            <circle cx="372" cy="182" r="20" stroke="white" strokeWidth="2.5" />
+            <circle cx="552" cy="182" r="20" stroke="white" strokeWidth="2.5" />
             {/* 体 */}
             <line
-              x1="372"
+              x1="552"
               y1="202"
-              x2="372"
+              x2="552"
               y2="256"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 左腕（旅行者へ） */}
             <line
-              x1="372"
+              x1="552"
               y1="222"
-              x2="330"
+              x2="510"
               y2="238"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 右腕 */}
             <line
-              x1="372"
+              x1="552"
               y1="222"
-              x2="396"
+              x2="576"
               y2="238"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 左足 */}
             <line
-              x1="372"
+              x1="552"
               y1="256"
-              x2="356"
+              x2="536"
               y2="292"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 右足 */}
             <line
-              x1="372"
+              x1="552"
               y1="256"
-              x2="388"
+              x2="568"
               y2="292"
               stroke="white"
               strokeWidth="2.5"
             />
             {/* 笑顔 */}
             <path
-              d="M366 180 Q372 185 378 180"
+              d="M546 180 Q552 185 558 180"
               stroke="white"
               strokeWidth="1.5"
               strokeLinecap="round"
@@ -595,7 +595,7 @@ export default async function FlowPage({
 
             {/* 二人の間のハート */}
             <path
-              d="M336 212 C336 209 339 207 342 210 C345 207 348 209 348 212 C348 216 342 221 342 221 C342 221 336 216 336 212 Z"
+              d="M516 212 C516 209 519 207 522 210 C525 207 528 209 528 212 C528 216 522 221 522 221 C522 221 516 216 516 212 Z"
               stroke="white"
               strokeWidth="1.5"
               fill="white"

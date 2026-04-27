@@ -21,6 +21,7 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/top/HeroSection";
 import TourGallery from "@/components/top/TourGallery";
 import FlowPreview from "@/components/top/FlowPreview";
+import CtaSection from "@/components/common/CtaSection";
 export default async function HomePage({
   params,
 }: {
@@ -29,6 +30,8 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations("cta");
+
   return (
     <>
       <Header />
@@ -36,6 +39,14 @@ export default async function HomePage({
         <HeroSection />
         <TourGallery />
         <FlowPreview />
+        <CtaSection
+          title={t("title")}
+          description={t("description")}
+          primaryLabel={t("applyButton")}
+          primaryHref="/contact"
+          secondaryLabel={t("registerButton")}
+          secondaryHref="/faq"
+        />
       </main>
       <Footer />
     </>

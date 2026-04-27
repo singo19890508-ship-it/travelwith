@@ -49,314 +49,334 @@ export default async function JoinPage({
     <>
       <Header />
       <main>
-        {/* カスタムヒーロー：テキスト左 ＋ 線画右 */}
-        <section className="bg-teal-700 text-white">
-          <div className="max-w-5xl mx-auto px-6 py-14 flex flex-col md:flex-row items-center gap-8">
-            {/* 左：テキスト */}
-            <div className="flex-1 text-center md:text-left">
-              <p className="text-teal-200 text-xs font-semibold tracking-widest uppercase mb-3">
-                Join Us
-              </p>
-              <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">
-                {t("pageTitle")}
-              </h1>
-              <p className="text-white/80 text-base leading-relaxed max-w-md mx-auto md:mx-0">
-                {t("pageDescription")}
-              </p>
-            </div>
+        {/* SVG線画ヒーロー — 全幅 */}
+        <section className="relative bg-teal-700 text-white py-16 md:py-24 overflow-hidden">
+          {/* 線画イラスト */}
+          <svg
+            viewBox="0 0 1000 280"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute inset-0 w-full h-full"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            {/* 遠景の丘 */}
+            <path
+              d="M0 238 Q200 205 400 222 Q600 240 800 215 Q900 205 1000 218 L1000 280 L0 280 Z"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.18"
+              fill="white"
+              fillOpacity="0.05"
+            />
+            {/* 手前の丘 */}
+            <path
+              d="M0 258 Q250 240 500 252 Q750 264 1000 246 L1000 280 L0 280 Z"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.12"
+              fill="white"
+              fillOpacity="0.04"
+            />
 
-            {/* 右：SVG線画イラスト */}
-            <div className="flex-shrink-0 w-64 sm:w-72 md:w-80">
-              <svg
-                viewBox="0 0 280 220"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-full"
-                aria-hidden="true"
-              >
-                {/* 丘・大地 */}
-                <path
-                  d="M0 185 Q70 155 140 170 Q210 185 280 162 L280 220 L0 220 Z"
-                  stroke="white"
-                  strokeWidth="1"
-                  strokeOpacity="0.25"
-                  fill="white"
-                  fillOpacity="0.07"
-                />
+            {/* 山シルエット（桜島）*/}
+            <path
+              d="M820 280 L896 142 L972 280"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.45"
+            />
+            <path
+              d="M860 280 L930 168 L1000 280"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.28"
+            />
+            {/* 火口縁 */}
+            <path
+              d="M884 147 Q896 140 908 147"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.55"
+            />
+            {/* 噴煙 */}
+            <path
+              d="M896 138 Q890 122 897 106 Q904 90 895 74"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.35"
+              strokeLinecap="round"
+            />
 
-                {/* 山シルエット（桜島イメージ） */}
-                <path
-                  d="M30 172 L68 112 L106 172"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.35"
-                />
-                <path
-                  d="M70 172 L102 122 L134 172"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.25"
-                />
+            {/* 太陽 */}
+            <circle
+              cx="960"
+              cy="65"
+              r="28"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.48"
+            />
+            <line
+              x1="960"
+              y1="29"
+              x2="960"
+              y2="18"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.48"
+            />
+            <line
+              x1="960"
+              y1="101"
+              x2="960"
+              y2="112"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.48"
+            />
+            <line
+              x1="924"
+              y1="65"
+              x2="913"
+              y2="65"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.48"
+            />
+            <line
+              x1="996"
+              y1="65"
+              x2="1007"
+              y2="65"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.48"
+            />
+            <line
+              x1="934"
+              y1="39"
+              x2="926"
+              y2="31"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.48"
+            />
+            <line
+              x1="986"
+              y1="91"
+              x2="994"
+              y2="99"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.48"
+            />
 
-                {/* 太陽 */}
-                <circle
-                  cx="222"
-                  cy="52"
-                  r="17"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.55"
-                />
-                <line
-                  x1="222"
-                  y1="29"
-                  x2="222"
-                  y2="22"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.55"
-                />
-                <line
-                  x1="247"
-                  y1="52"
-                  x2="254"
-                  y2="52"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.55"
-                />
-                <line
-                  x1="238"
-                  y1="35"
-                  x2="243"
-                  y2="30"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.55"
-                />
-                <line
-                  x1="206"
-                  y1="35"
-                  x2="201"
-                  y2="30"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.55"
-                />
-                <line
-                  x1="222"
-                  y1="75"
-                  x2="222"
-                  y2="82"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.55"
-                />
+            {/* 鳥 */}
+            <path
+              d="M510 48 Q520 42 530 48"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.5"
+            />
+            <path
+              d="M544 34 Q554 28 564 34"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.5"
+            />
+            <path
+              d="M578 55 Q588 49 598 55"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.4"
+            />
+            <path
+              d="M620 38 Q630 32 640 38"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.38"
+            />
 
-                {/* 鳥 */}
-                <path
-                  d="M22 48 Q27 43 32 48"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.6"
-                />
-                <path
-                  d="M40 38 Q45 33 50 38"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.6"
-                />
-                <path
-                  d="M58 52 Q63 47 68 52"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.45"
-                />
+            {/* 点線の道 */}
+            <path
+              d="M0 270 Q150 262 280 266 Q420 274 560 258 Q680 245 760 252"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.4"
+              strokeDasharray="14 7"
+            />
 
-                {/* 点線の道 */}
-                <path
-                  d="M55 195 Q140 190 230 193"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.4"
-                  strokeDasharray="7 4"
-                />
+            {/* ── 旅行者（右エリア・大きめ） ── */}
+            {/* 頭 */}
+            <circle cx="632" cy="165" r="22" stroke="white" strokeWidth="2.5" />
+            {/* 体 */}
+            <line
+              x1="632"
+              y1="187"
+              x2="632"
+              y2="240"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 右腕（サポーターへ） */}
+            <line
+              x1="632"
+              y1="206"
+              x2="668"
+              y2="222"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 左腕（スーツケース） */}
+            <line
+              x1="632"
+              y1="206"
+              x2="596"
+              y2="218"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 左足 */}
+            <line
+              x1="632"
+              y1="240"
+              x2="614"
+              y2="276"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 右足（踏み出し） */}
+            <line
+              x1="632"
+              y1="240"
+              x2="650"
+              y2="276"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* スーツケース本体 */}
+            <rect
+              x="572"
+              y="218"
+              width="26"
+              height="34"
+              rx="3"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            <line
+              x1="572"
+              y1="232"
+              x2="598"
+              y2="232"
+              stroke="white"
+              strokeWidth="1.5"
+            />
+            {/* ハンドル */}
+            <path
+              d="M580 218 L580 210 L590 210 L590 218"
+              stroke="white"
+              strokeWidth="2"
+            />
+            {/* キャスター */}
+            <circle cx="579" cy="252" r="4" stroke="white" strokeWidth="2" />
+            <circle cx="591" cy="252" r="4" stroke="white" strokeWidth="2" />
+            {/* 笑顔 */}
+            <path
+              d="M626 163 Q632 169 638 163"
+              stroke="white"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
 
-                {/* 旅行者（左・やや低め） */}
-                {/* 頭 */}
-                <circle
-                  cx="128"
-                  cy="113"
-                  r="13"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 体 */}
-                <line
-                  x1="128"
-                  y1="126"
-                  x2="128"
-                  y2="165"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 右腕（サポーターへ伸ばす） */}
-                <line
-                  x1="128"
-                  y1="140"
-                  x2="154"
-                  y2="152"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 左腕（スーツケース） */}
-                <line
-                  x1="128"
-                  y1="140"
-                  x2="106"
-                  y2="156"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 左足 */}
-                <line
-                  x1="128"
-                  y1="165"
-                  x2="116"
-                  y2="190"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 右足 */}
-                <line
-                  x1="128"
-                  y1="165"
-                  x2="140"
-                  y2="190"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* スーツケース本体 */}
-                <rect
-                  x="93"
-                  y="156"
-                  width="17"
-                  height="21"
-                  rx="2"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* スーツケース仕切り線 */}
-                <line
-                  x1="93"
-                  y1="163"
-                  x2="110"
-                  y2="163"
-                  stroke="white"
-                  strokeWidth="1.5"
-                />
-                {/* ハンドル */}
-                <path
-                  d="M99 156 L99 150 L104 150 L104 156"
-                  stroke="white"
-                  strokeWidth="1.5"
-                />
-                {/* キャスター */}
-                <circle
-                  cx="97"
-                  cy="177"
-                  r="2"
-                  stroke="white"
-                  strokeWidth="1.5"
-                />
-                <circle
-                  cx="106"
-                  cy="177"
-                  r="2"
-                  stroke="white"
-                  strokeWidth="1.5"
-                />
+            {/* ── サポーター（旅行者の右・やや高め・大きめ） ── */}
+            {/* 頭 */}
+            <circle cx="724" cy="150" r="26" stroke="white" strokeWidth="2.5" />
+            {/* 体 */}
+            <line
+              x1="724"
+              y1="176"
+              x2="724"
+              y2="240"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 左腕（旅行者を支える） */}
+            <line
+              x1="724"
+              y1="198"
+              x2="672"
+              y2="218"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 右腕 */}
+            <line
+              x1="724"
+              y1="198"
+              x2="758"
+              y2="218"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 左足 */}
+            <line
+              x1="724"
+              y1="240"
+              x2="706"
+              y2="276"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 右足 */}
+            <line
+              x1="724"
+              y1="240"
+              x2="742"
+              y2="276"
+              stroke="white"
+              strokeWidth="2.5"
+            />
+            {/* 笑顔 */}
+            <path
+              d="M717 148 Q724 155 731 148"
+              stroke="white"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
 
-                {/* サポーター（右・やや高め） */}
-                {/* 頭 */}
-                <circle
-                  cx="174"
-                  cy="101"
-                  r="16"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 体 */}
-                <line
-                  x1="174"
-                  y1="117"
-                  x2="174"
-                  y2="165"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 左腕（旅行者を支える） */}
-                <line
-                  x1="174"
-                  y1="135"
-                  x2="152"
-                  y2="152"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 右腕 */}
-                <line
-                  x1="174"
-                  y1="135"
-                  x2="196"
-                  y2="148"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 左足 */}
-                <line
-                  x1="174"
-                  y1="165"
-                  x2="162"
-                  y2="190"
-                  stroke="white"
-                  strokeWidth="2"
-                />
-                {/* 右足 */}
-                <line
-                  x1="174"
-                  y1="165"
-                  x2="186"
-                  y2="190"
-                  stroke="white"
-                  strokeWidth="2"
-                />
+            {/* ハート（二人の間） */}
+            <path
+              d="M674 188 C674 184 678 181 682 185 C686 181 690 184 690 188 C690 194 682 200 682 200 C682 200 674 194 674 188 Z"
+              stroke="white"
+              strokeWidth="1.8"
+              fill="white"
+              fillOpacity="0.35"
+              strokeOpacity="0.75"
+            />
 
-                {/* ハート（二人の間） */}
-                <path
-                  d="M149 127 C149 124 152 122 155 125 C158 122 161 124 161 127 C161 131 155 136 155 136 C155 136 149 131 149 127 Z"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  fill="white"
-                  fillOpacity="0.35"
-                />
+            {/* 装飾ドット（左端） */}
+            <circle cx="60" cy="50" r="3" fill="white" fillOpacity="0.12" />
+            <circle cx="90" cy="80" r="2" fill="white" fillOpacity="0.1" />
+            <circle cx="40" cy="110" r="4" fill="white" fillOpacity="0.08" />
+            <circle cx="110" cy="140" r="2" fill="white" fillOpacity="0.1" />
+          </svg>
 
-                {/* サポーターの笑顔 */}
-                <path
-                  d="M168 99 Q174 104 180 99"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                {/* 旅行者の笑顔 */}
-                <path
-                  d="M123 111 Q128 116 133 111"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
+          {/* グラデーションオーバーレイ（左を暗く） */}
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-800/90 via-teal-700/65 to-transparent" />
+
+          {/* テキスト */}
+          <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
+            <p className="text-teal-200 text-sm font-semibold tracking-widest uppercase mb-3">
+              Join Us
+            </p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4">
+              {t("pageTitle")}
+            </h1>
+            <p className="text-white/85 text-base md:text-lg leading-relaxed max-w-xl">
+              {t("pageDescription")}
+            </p>
           </div>
         </section>
 

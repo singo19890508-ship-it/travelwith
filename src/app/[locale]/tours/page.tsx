@@ -63,16 +63,277 @@ export default async function ToursPage({
     <>
       <Header />
       <main className="min-h-screen bg-white">
-        {/* ヒーロー */}
-        <section className="bg-satsuma-800 text-white py-16 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block bg-satsuma-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide">
+        {/* SVG線画ヒーロー — ツアー */}
+        <section className="relative bg-satsuma-800 text-white py-16 md:py-20 overflow-hidden">
+          {/* 線画イラスト */}
+          <svg
+            viewBox="0 0 1000 240"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute inset-0 w-full h-full"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            {/* 地図グリッド（薄い格子） */}
+            <line
+              x1="0"
+              y1="80"
+              x2="1000"
+              y2="80"
+              stroke="white"
+              strokeWidth="0.8"
+              strokeOpacity="0.08"
+            />
+            <line
+              x1="0"
+              y1="160"
+              x2="1000"
+              y2="160"
+              stroke="white"
+              strokeWidth="0.8"
+              strokeOpacity="0.08"
+            />
+            <line
+              x1="250"
+              y1="0"
+              x2="250"
+              y2="240"
+              stroke="white"
+              strokeWidth="0.8"
+              strokeOpacity="0.08"
+            />
+            <line
+              x1="500"
+              y1="0"
+              x2="500"
+              y2="240"
+              stroke="white"
+              strokeWidth="0.8"
+              strokeOpacity="0.08"
+            />
+            <line
+              x1="750"
+              y1="0"
+              x2="750"
+              y2="240"
+              stroke="white"
+              strokeWidth="0.8"
+              strokeOpacity="0.08"
+            />
+
+            {/* 桜島シルエット（右端） */}
+            <path
+              d="M840 240 L910 130 L980 240"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.4"
+            />
+            <path
+              d="M880 240 L942 155 L1004 240"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.25"
+            />
+            {/* 火口 */}
+            <path
+              d="M898 135 Q910 128 922 135"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.5"
+            />
+            {/* 噴煙 */}
+            <path
+              d="M910 126 Q904 110 912 94 Q920 78 910 62"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.3"
+              strokeLinecap="round"
+            />
+
+            {/* 目的地ピン（左エリア） */}
+            <path
+              d="M148 60 C148 46 158 36 170 36 C182 36 192 46 192 60 C192 76 170 96 170 96 C170 96 148 76 148 60 Z"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.52"
+            />
+            <circle
+              cx="170"
+              cy="59"
+              r="8"
+              stroke="white"
+              strokeWidth="1.8"
+              strokeOpacity="0.52"
+            />
+            {/* ピン下の点線（ルート） */}
+            <path
+              d="M170 98 Q200 115 240 108 Q290 100 330 118 Q370 134 420 128"
+              stroke="white"
+              strokeWidth="1.8"
+              strokeOpacity="0.35"
+              strokeDasharray="10 6"
+              strokeLinecap="round"
+            />
+            {/* ルート終点ピン（小） */}
+            <path
+              d="M415 112 C415 106 420 101 426 101 C432 101 437 106 437 112 C437 120 426 128 426 128 C426 128 415 120 415 112 Z"
+              stroke="white"
+              strokeWidth="1.8"
+              strokeOpacity="0.45"
+            />
+            <circle
+              cx="426"
+              cy="111"
+              r="5"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.45"
+            />
+
+            {/* カメラ（右上エリア） */}
+            <rect
+              x="760"
+              y="32"
+              width="68"
+              height="52"
+              rx="8"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.42"
+            />
+            {/* レンズ */}
+            <circle
+              cx="794"
+              cy="58"
+              r="16"
+              stroke="white"
+              strokeWidth="2"
+              strokeOpacity="0.42"
+            />
+            <circle
+              cx="794"
+              cy="58"
+              r="9"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.35"
+            />
+            {/* ファインダー */}
+            <rect
+              x="770"
+              y="28"
+              width="20"
+              height="8"
+              rx="3"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.38"
+            />
+            {/* シャッターボタン */}
+            <circle
+              cx="820"
+              cy="38"
+              r="5"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.38"
+            />
+
+            {/* コンパス（左下） */}
+            <circle
+              cx="72"
+              cy="178"
+              r="28"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.32"
+            />
+            {/* 北針 */}
+            <path
+              d="M72 152 L78 175 L72 170 L66 175 Z"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.45"
+              fill="white"
+              fillOpacity="0.25"
+            />
+            {/* 南針 */}
+            <path
+              d="M72 204 L66 181 L72 186 L78 181 Z"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.3"
+            />
+            <line
+              x1="44"
+              y1="178"
+              x2="100"
+              y2="178"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.28"
+            />
+            <text
+              x="72"
+              y="149"
+              textAnchor="middle"
+              fontSize="9"
+              fill="white"
+              fillOpacity="0.5"
+            >
+              N
+            </text>
+
+            {/* 飛行機（上空） */}
+            <path
+              d="M580 38 L608 48 L618 44 L590 30 Z"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.4"
+              fill="white"
+              fillOpacity="0.12"
+            />
+            <path
+              d="M594 44 L586 58 L594 54"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeOpacity="0.4"
+            />
+            <path
+              d="M602 42 L610 50"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.35"
+            />
+            {/* 飛行機雲 */}
+            <path
+              d="M580 38 Q550 30 520 28 Q490 26 460 30"
+              stroke="white"
+              strokeWidth="1"
+              strokeOpacity="0.22"
+              strokeDasharray="8 5"
+            />
+
+            {/* 装飾ドット（散らばり） */}
+            <circle cx="350" cy="28" r="3" fill="white" fillOpacity="0.15" />
+            <circle cx="480" cy="200" r="2" fill="white" fillOpacity="0.12" />
+            <circle cx="680" cy="195" r="3" fill="white" fillOpacity="0.1" />
+            <circle cx="120" cy="130" r="2" fill="white" fillOpacity="0.12" />
+            <circle cx="280" cy="55" r="2.5" fill="white" fillOpacity="0.1" />
+          </svg>
+
+          {/* 全体オーバーレイ */}
+          <div className="absolute inset-0 bg-satsuma-800/75" />
+
+          {/* テキスト（中央） */}
+          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-4 tracking-widest backdrop-blur-sm">
               TOURS
             </span>
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
               {t("pageTitle")}
             </h1>
-            <p className="text-satsuma-100 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-satsuma-100/85 text-lg max-w-2xl mx-auto leading-relaxed">
               {t("pageDescription")}
             </p>
           </div>

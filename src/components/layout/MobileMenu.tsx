@@ -13,6 +13,7 @@ export default function MobileMenu() {
     { href: "/flow", label: t("flow") },
     { href: "/join", label: t("join") },
     { href: "/faq", label: t("faq") },
+    { href: "/contact", label: t("contact") },
   ];
 
   return (
