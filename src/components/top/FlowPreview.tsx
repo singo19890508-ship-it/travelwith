@@ -58,10 +58,10 @@ export default async function FlowPreview() {
         </div>
         <div className="text-center">
           <Link
-            href="/flow"
-            className="inline-flex items-center gap-2 text-satsuma-600 font-semibold text-base hover:text-satsuma-700 transition-colors"
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-satsuma-600 hover:bg-satsuma-700 text-white font-semibold text-base px-6 py-3 rounded-xl transition-colors"
           >
-            {t("detailLink")}
+            まず無料で相談する
             <svg
               className="w-4 h-4"
               fill="none"

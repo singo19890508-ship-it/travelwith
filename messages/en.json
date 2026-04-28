@@ -26,7 +26,7 @@
   "header": {
     "home": "Home",
     "flow": "How It Works",
-    "caregivers": "Caregivers",
+    "caregivers": "Choose a Caregiver",
     "join": "Become a Caregiver",
     "safety": "Safety",
     "faq": "FAQ",
@@ -39,7 +39,8 @@
     "supporterRegister": "Caregiver Registration",
     "applyButton": "Apply",
     "registerButton": "Register",
-    "tours": "Tours"
+    "tours": "Choose a Trip",
+    "field": "Support Diary"
   },
   "footer": {
     "description": "A matching service connecting travelers who need physical support with experienced caregivers in Kagoshima.",

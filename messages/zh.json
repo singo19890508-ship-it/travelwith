@@ -26,7 +26,7 @@
   "header": {
     "home": "首页",
     "flow": "旅行计划",
-    "caregivers": "护理员介绍",
+    "caregivers": "选择介助者",
     "join": "成为助行者",
     "safety": "安心·安全",
     "faq": "常见问题",
@@ -39,7 +39,8 @@
     "supporterRegister": "护理员注册",
     "applyButton": "申请",
     "registerButton": "注册",
-    "tours": "旅游"
+    "tours": "选择旅行",
+    "field": "支援日记"
   },
   "footer": {
     "description": "为需要身体支援的旅行者与经验丰富的护理员牵线搭桥的匹配服务。",

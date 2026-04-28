@@ -26,7 +26,7 @@
   "header": {
     "home": "홈",
     "flow": "여행 계획",
-    "caregivers": "개호인 소개",
+    "caregivers": "헬퍼 선택",
     "join": "서포터 되기",
     "safety": "안심·안전",
     "faq": "FAQ",
@@ -39,7 +39,8 @@
     "supporterRegister": "개호인 등록",
     "applyButton": "신청",
     "registerButton": "등록",
-    "tours": "투어"
+    "tours": "여행 선택",
+    "field": "서포트 일기"
   },
   "footer": {
     "description": "신체적 지원이 필요한 여행자와 경험 있는 개호인을 연결하는 매칭 서비스입니다.",

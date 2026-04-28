@@ -26,7 +26,7 @@
   "header": {
     "home": "ホーム",
     "flow": "旅行に行く",
-    "caregivers": "介助者紹介",
+    "caregivers": "介助者を選ぶ",
     "join": "介助者になる",
     "safety": "安心・安全",
     "faq": "FAQ",
@@ -39,7 +39,8 @@
     "supporterRegister": "サポーター登録",
     "applyButton": "申し込む",
     "registerButton": "サポーター登録",
-    "tours": "ツアー"
+    "tours": "旅行を選ぶ",
+    "field": "サポート日記"
   },
   "footer": {
     "description": "障害がある方・高齢者・医療的ケアが必要な方の旅を、専門スタッフがサポートします。鹿児島から、諦めなくていい旅を届けます。",

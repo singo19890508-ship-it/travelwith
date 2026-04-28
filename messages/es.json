@@ -26,7 +26,7 @@
   "header": {
     "home": "Inicio",
     "flow": "Planificar Viaje",
-    "caregivers": "Cuidadores",
+    "caregivers": "Elegir asistente",
     "join": "Ser Asistente",
     "safety": "Seguridad",
     "faq": "FAQ",
@@ -39,7 +39,8 @@
     "supporterRegister": "Registro de cuidador",
     "applyButton": "Solicitar",
     "registerButton": "Registrarse",
-    "tours": "Tours"
+    "tours": "Elegir viaje",
+    "field": "Diario de apoyo"
   },
   "footer": {
     "description": "Servicio de emparejamiento que conecta viajeros con necesidades físicas con cuidadores experimentados.",
