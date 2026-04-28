@@ -81,7 +81,7 @@ export default async function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-satsuma-900/30 via-transparent to-satsuma-900/50" />
 
       {/* コンテンツ */}
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-24 lg:py-32">
         <div className="max-w-lg">
           {/* バッジ */}
           <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide backdrop-blur-sm">

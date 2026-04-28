@@ -29,7 +29,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
     <>
       <Header />
       <main>
-        <PageHeader
+        <PageHeader accent="silver"
           title={t("pageTitle")}
           description={t("pageDescription")}
           color="blue"

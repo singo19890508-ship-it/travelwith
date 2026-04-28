@@ -40,7 +40,7 @@ export default async function AboutPage({
     <>
       <Header />
       <main>
-        <PageHeader
+        <PageHeader accent="silver"
           title={t("pageTitle")}
           description={t("pageDescription")}
           color="blue"

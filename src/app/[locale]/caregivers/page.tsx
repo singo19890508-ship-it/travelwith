@@ -25,7 +25,7 @@ export default async function CaregiversPage({ params }: { params: Promise<{ loc
     <>
       <Header />
       <main>
-        <PageHeader
+        <PageHeader accent="teal"
           title={t("pageTitle")}
           description={t("pageDescription")}
           color="blue"

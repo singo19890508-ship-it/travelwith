@@ -32,7 +32,7 @@ export default async function CommercePage({ params }: { params: Promise<{ local
     <>
       <Header />
       <main>
-        <PageHeader
+        <PageHeader accent="silver"
           title={t("pageTitle")}
           description={t("pageDescription")}
           color="blue"

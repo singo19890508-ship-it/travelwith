@@ -21,7 +21,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
     <>
       <Header />
       <main className="min-h-screen bg-gray-50">
-        <PageHeader
+        <PageHeader accent="silver"
           title={t("pageTitle")}
           description={t("pageDescription")}
           color="blue"

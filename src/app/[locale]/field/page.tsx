@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import PageHeader from "@/components/common/PageHeader";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getPublishedPosts } from "@/lib/field-posts";
@@ -32,19 +33,7 @@ export default async function FieldPage({
       <Header />
       <main>
         {/* ヘッダー */}
-        <section className="bg-satsuma-800 text-white py-14 px-4 text-center">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-wagold-400 font-semibold text-sm mb-3">
-              {t("badge")}
-            </p>
-            <h1 className="text-2xl md:text-3xl font-bold mb-4">
-              {t("heading")}
-            </h1>
-            <p className="text-white/80 text-sm leading-relaxed">
-              {t("subheading")}
-            </p>
-          </div>
-        </section>
+        <PageHeader accent="green" label={t("badge")} title={t("heading")} description={t("subheading")} />
 
         {/* 投稿一覧 */}
         <section className="max-w-2xl mx-auto px-4 py-14">
