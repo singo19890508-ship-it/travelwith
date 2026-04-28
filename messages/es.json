@@ -285,7 +285,9 @@
     "age30s": "30 años",
     "age40s": "40 años",
     "age50s": "50 años",
-    "age60s": "60+ años"
+    "age60s": "60+ años",
+    "photoComingSoon": "Foto próximamente",
+    "placeholderNote": "Los perfiles aparecerán cuando se completen los registros de cuidadores"
   },
   "faq": {
     "pageTitle": "Preguntas frecuentes",
@@ -458,7 +460,18 @@
     "operatorContactValue": "Usa el formulario de contacto del sitio",
     "ctaTitle": "Creemos viajes juntos",
     "ctaDescription": "Como viajero, cuidador o con comentarios — bienvenido en cualquier forma.",
-    "ctaButton": "Contactar y consultar"
+    "ctaButton": "Contactar y consultar",
+    "repTitle": "Perfil del representante",
+    "repPhotoNote": "Foto próximamente",
+    "repRole": "Representante · Director de operaciones",
+    "repName": "Shingo Fukuda",
+    "repNameRuby": "Fukuda Shingo",
+    "repDesc": "Nacido en Kagoshima. Como acupunturista en entornos médicos y de cuidado durante muchos años, escuchó repetidamente a personas que habían renunciado a viajar.\n\n\"Con el apoyo adecuado, muchas más personas podrían disfrutar de los viajes\" — esa convicción lo llevó a fundar FUKU-TABI.",
+    "repCredTitle": "Cualificaciones",
+    "repCredList": "Acupunturista,Trabajador de cuidado,Gestor de cuidados,Gestor de viajes nacionales,Maestro de guardería,Apoyo a niños con cuidado médico,Apoyo a crianza,Responsable de higiene alimentaria",
+    "repLicenseTitle": "Registro de agencia de viajes",
+    "repLicenseValue": "Agencia de viajes regional limitada (registro planificado)",
+    "repLicenseNote": "Registro planificado en noviembre de 2026 junto con la fundación de Daifuku LLC"
   },
   "terms": {
     "text": "Términos de uso de FUKU-TABI",
@@ -755,6 +768,31 @@
     "ctaTitle": "Contactanos primero",
     "ctaDesc": "Consulta sobre opciones de transporte, zonas de recogida y disponibilidad de vehiculos.",
     "ctaApply": "Solicitar un viaje",
-    "ctaTours": "Ver tours"
+    "ctaTours": "Ver tours",
+    "staffTitle": "Conoce a nuestro equipo",
+    "staffNote": "Las fotos y nombres se añadirán cuando estén disponibles",
+    "staffRolePlaceholder": "Conductor de taxi de bienestar",
+    "staffNamePlaceholder": "Nombre (próximamente)",
+    "staffCredPlaceholder": "Licencia clase 2 · Certificación de vehículo de bienestar",
+    "staffComment1": "Te llevaré a donde quieras de forma segura y con una sonrisa.",
+    "staffComment2": "Desplazamientos cómodos y seguros para usuarios de silla de ruedas.",
+    "staffComment3": "Te apoyaré con todo mi corazón para crear recuerdos de viaje.",
+    "staffPhotoNote": "Foto próximamente"
+  },
+  "pillars": {
+    "title": "4 garantías de confianza",
+    "subtitle": "Todo lo que FUKU-TABI tiene preparado para que puedas decir 'sí' al viaje",
+    "pill1Title": "Agencia de viajes registrada",
+    "pill1Desc": "Dirigida por un gestor de viajes domésticos certificado. Se prevé el registro de agencia de viajes regional en noviembre de 2026.",
+    "pill1Link": "Sobre nosotros",
+    "pill2Title": "Equipo propio de cuidadores",
+    "pill2Desc": "Cuidadores certificados y con amplia experiencia. Apoyo personalizado adaptado a las necesidades de cada viajero.",
+    "pill2Link": "Ver cuidadores",
+    "pill3Title": "Alianza con taxi de bienestar",
+    "pill3Desc": "Alianza exclusiva con servicio de taxi accesible para sillas de ruedas y conductores cualificados. Sin preocupaciones de transporte.",
+    "pill3Link": "Ver socio",
+    "pill4Title": "Programa de formación de cuidadores",
+    "pill4Desc": "Programa propio de formación para desarrollar cuidadores de alta calidad y mantener un servicio consistente.",
+    "pill4Link": "Conviértete en cuidador"
   }
 }

@@ -200,6 +200,61 @@ export default async function PartnerPage({
           </div>
         </section>
 
+        {/* 担当スタッフ紹介 */}
+        <section className="py-14 px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-800 mb-3 text-center">
+              {t("staffTitle")}
+            </h2>
+            <p className="text-center text-gray-500 text-sm mb-8">
+              {t("staffNote")}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {[1, 2, 3].map((n) => (
+                <div
+                  key={n}
+                  className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden text-center p-6"
+                >
+                  {/* Photo placeholder */}
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center mx-auto mb-4 border-2 border-teal-100">
+                    <svg
+                      className="w-12 h-12 text-teal-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                  </div>
+                  {/* Name / role placeholder */}
+                  <p className="text-xs text-teal-600 font-bold tracking-wide mb-1">
+                    {t("staffRolePlaceholder")}
+                  </p>
+                  <p className="font-bold text-gray-800 mb-1">
+                    {t("staffNamePlaceholder")}
+                  </p>
+                  {/* Credentials */}
+                  <p className="text-xs text-gray-500 mb-3">
+                    {t("staffCredPlaceholder")}
+                  </p>
+                  {/* Comment */}
+                  <p className="text-sm text-gray-600 leading-relaxed italic">
+                    &ldquo;{t(`staffComment${n}`)}&rdquo;
+                  </p>
+                  <p className="text-xs text-gray-400 mt-4">
+                    {t("staffPhotoNote")}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ドライバー資格 */}
         <section className="py-14 px-4 bg-gray-50">
           <div className="max-w-4xl mx-auto">

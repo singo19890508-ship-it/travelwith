@@ -285,7 +285,9 @@
     "age30s": "30s",
     "age40s": "40s",
     "age50s": "50s",
-    "age60s": "60+"
+    "age60s": "60+",
+    "photoComingSoon": "Photo coming soon",
+    "placeholderNote": "Caregiver profiles will appear once registrations are complete"
   },
   "faq": {
     "pageTitle": "FAQ",
@@ -458,7 +460,18 @@
     "operatorContactValue": "Please use the inquiry form on this site",
     "ctaTitle": "Let's create travel together",
     "ctaDescription": "Whether as a traveler, caregiver, or with feedback — we welcome any form of contact.",
-    "ctaButton": "Contact & Consult"
+    "ctaButton": "Contact & Consult",
+    "repTitle": "About the Representative",
+    "repPhotoNote": "Photo coming soon",
+    "repRole": "Representative / Director",
+    "repName": "Shingo Fukuda",
+    "repNameRuby": "Fukuda Shingo",
+    "repDesc": "Born and raised in Kagoshima. As an acupuncturist working in medical and care settings for many years, he repeatedly heard from people who had given up on travel.\n\n\"With the right support, so many more people could enjoy traveling.\" — That conviction led him to found FUKU-TABI. As a universal tourism specialist, he continues to face each traveler's wish to go.",
+    "repCredTitle": "Qualifications",
+    "repCredList": "Acupuncturist,Care Worker,Care Manager,Travel Manager (Domestic),Nursery Teacher,Medical Care Child Support,Childcare Support Worker,Food Sanitation Supervisor",
+    "repLicenseTitle": "Travel Business Registration",
+    "repLicenseValue": "Regional-Limited Travel Business (registration planned)",
+    "repLicenseNote": "Registration planned in November 2026 upon establishment of Daifuku LLC"
   },
   "terms": {
     "text": "FUKU-TABI Terms of Service (For Caregivers)\n\nArticle 1 (Purpose)\nThese terms govern the conditions for individuals acting as caregivers through FUKU-TABI.\n\nArticle 2 (Caregiver Obligations)\n1. Caregivers must prioritize the safety and dignity of travelers.\n2. Caregivers must not make false claims about qualifications or experience.\n3. Caregivers must not disclose travelers' personal information to third parties.\n4. Caregivers must not cancel without valid reason after a match is confirmed.\n\nArticle 3 (Prohibited Activities)\n- Inappropriate behavior or remarks toward travelers\n- Requesting money beyond stipulated compensation\n- Unauthorized photography or social media posting\n- Private contact information exchange through the Service\n\nArticle 4 (Disclaimer)\nThe Service is not liable for incidents during travel unless caused by gross negligence.\n\nArticle 5 (Cancellation of Registration)\nThe Service may cancel the registration of caregivers who violate these terms.",
@@ -755,6 +768,31 @@
     "ctaTitle": "Contact us first",
     "ctaDesc": "Feel free to inquire about transportation options, pickup areas, and vehicle availability.",
     "ctaApply": "Apply for a trip",
-    "ctaTours": "View tours"
+    "ctaTours": "View tours",
+    "staffTitle": "Meet Our Staff",
+    "staffNote": "Photos and names will be added once available",
+    "staffRolePlaceholder": "Welfare Taxi Driver",
+    "staffNamePlaceholder": "Name (coming soon)",
+    "staffCredPlaceholder": "Class-2 License / Welfare Vehicle Certification",
+    "staffComment1": "I'll bring you safely and with a smile, wherever you want to go.",
+    "staffComment2": "Comfortable, reassuring rides for wheelchair users too.",
+    "staffComment3": "I'll support you wholeheartedly to make travel memories.",
+    "staffPhotoNote": "Photo coming soon"
+  },
+  "pillars": {
+    "title": "4 Reasons to Trust FUKU-TABI",
+    "subtitle": "Everything we have in place so you can say \"yes\" to travel",
+    "pill1Title": "Licensed Travel Agency",
+    "pill1Desc": "Run by a qualified Domestic Travel Manager. Regional travel business registration is planned for November 2026, ensuring a legally compliant service.",
+    "pill1Link": "About us",
+    "pill2Title": "Our Own Caregiver Team",
+    "pill2Desc": "Certified caregivers with hands-on experience are on our team, providing tailored support for each traveler's unique needs.",
+    "pill2Link": "Meet the caregivers",
+    "pill3Title": "Welfare Taxi Partnership",
+    "pill3Desc": "Exclusive partnership with a wheelchair-accessible taxi service staffed by qualified drivers — zero worry about getting around.",
+    "pill3Link": "View partner",
+    "pill4Title": "Caregiver Training Program",
+    "pill4Desc": "We run our own training program to develop high-quality caregivers and maintain consistent, reliable support.",
+    "pill4Link": "Become a caregiver"
   }
 }

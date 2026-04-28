@@ -21,6 +21,7 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/top/HeroSection";
 import TourGallery from "@/components/top/TourGallery";
 import FlowPreview from "@/components/top/FlowPreview";
+import FourPillarsSection from "@/components/top/FourPillarsSection";
 import CtaSection from "@/components/common/CtaSection";
 export default async function HomePage({
   params,
@@ -39,6 +40,7 @@ export default async function HomePage({
         <HeroSection />
         <TourGallery />
         <FlowPreview />
+        <FourPillarsSection />
         <CtaSection
           title={t("title")}
           description={t("description")}

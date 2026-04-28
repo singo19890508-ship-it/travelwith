@@ -11,6 +11,7 @@ export default function MobileMenu() {
   const navItems = [
     { href: "/tours", label: t("tours") },
     { href: "/flow", label: t("flow") },
+    { href: "/caregivers", label: t("caregivers") },
     { href: "/join", label: t("join") },
     { href: "/faq", label: t("faq") },
     { href: "/contact", label: t("contact") },

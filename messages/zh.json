@@ -285,7 +285,9 @@
     "age30s": "30多岁",
     "age40s": "40多岁",
     "age50s": "50多岁",
-    "age60s": "60岁以上"
+    "age60s": "60岁以上",
+    "photoComingSoon": "照片筹备中",
+    "placeholderNote": "护理员注册完成后将显示个人资料"
   },
   "faq": {
     "pageTitle": "常见问题",
@@ -458,7 +460,18 @@
     "operatorContactValue": "请通过网站内联系表单联系",
     "ctaTitle": "一起创造旅行吧",
     "ctaDescription": "无论作为旅行者、护理员，还是对服务的意见——欢迎任何形式的联系。",
-    "ctaButton": "咨询·联系我们"
+    "ctaButton": "咨询·联系我们",
+    "repTitle": "代表人介绍",
+    "repPhotoNote": "照片筹备中",
+    "repRole": "代表·运营负责人",
+    "repName": "福田真悟",
+    "repNameRuby": "Fukuda Shingo",
+    "repDesc": "出生于鹿儿岛。作为针灸师长期从事医疗・护理现场工作，多次听到「放弃旅行的人」的心声。\n\n「只要有支持，更多人就能享受旅行」——带着这个信念创立了FUKU-TABI。",
+    "repCredTitle": "持有资格",
+    "repCredList": "针灸师,介护福祉士,护理支援专门员,国内旅游业务管理者,保育士,医疗护理儿童支援,育儿支援员,食品卫生负责人",
+    "repLicenseTitle": "旅游业登记",
+    "repLicenseValue": "地区限定旅游业（登记申请预定）",
+    "repLicenseNote": "预计于2026年11月合同公司大福成立时同时申请旅游业登记"
   },
   "terms": {
     "text": "FUKU-TABI 使用条款",
@@ -755,6 +768,31 @@
     "ctaTitle": "请先咨询",
     "ctaDesc": "欢迎随时咨询交通方式、接送地区、车辆空闲状况等。",
     "ctaApply": "申请旅行",
-    "ctaTours": "查看套餐"
+    "ctaTours": "查看套餐",
+    "staffTitle": "员工介绍",
+    "staffNote": "照片和姓名准备好后将及时刊登",
+    "staffRolePlaceholder": "福祉出租车司机",
+    "staffNamePlaceholder": "姓名（筹备中）",
+    "staffCredPlaceholder": "二类驾照·福祉车辆驾驶资格",
+    "staffComment1": "无论去哪里，我都会安全微笑地送您到达。",
+    "staffComment2": "让轮椅使用者也能安心舒适地出行。",
+    "staffComment3": "全力支持您留下美好的旅行回忆。",
+    "staffPhotoNote": "照片筹备中"
+  },
+  "pillars": {
+    "title": "四大安心保障",
+    "subtitle": "FUKU-TABI为实现「能去旅行」而建立的四大体制",
+    "pill1Title": "旅游业登记",
+    "pill1Desc": "由持有国内旅游业务管理者资格的员工运营。预计2026年11月申请地区限定旅游业登记，提供合法合规的服务。",
+    "pill1Link": "了解运营者",
+    "pill2Title": "专属护理员团队",
+    "pill2Desc": "持有护理资格、经验丰富的护理员在籍。根据每位旅行者的实际情况提供细致入微的支持。",
+    "pill2Link": "查看护理员",
+    "pill3Title": "与福祉出租车合作",
+    "pill3Desc": "与拥有轮椅对应车辆和有资格司机的福祉出租车专属合作，让出行毫无后顾之忧。",
+    "pill3Link": "查看合作伙伴",
+    "pill4Title": "护理员培训计划",
+    "pill4Desc": "实施独自的护理员培训计划，持续提供高质量支持服务的体制。",
+    "pill4Link": "成为护理员"
   }
 }

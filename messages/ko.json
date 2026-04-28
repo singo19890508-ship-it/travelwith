@@ -285,7 +285,9 @@
     "age30s": "30대",
     "age40s": "40대",
     "age50s": "50대",
-    "age60s": "60대 이상"
+    "age60s": "60대 이상",
+    "photoComingSoon": "사진 준비 중",
+    "placeholderNote": "개호인 등록이 완료되면 프로필이 표시됩니다"
   },
   "faq": {
     "pageTitle": "자주 묻는 질문",
@@ -458,7 +460,18 @@
     "operatorContactValue": "사이트 내 문의 양식으로 연락해 주세요",
     "ctaTitle": "함께 여행을 만들어 갑시다",
     "ctaDescription": "여행자로서, 개호인으로서, 혹은 서비스에 대한 의견으로——어떤 형태로든 연락을 기다리고 있습니다.",
-    "ctaButton": "문의·상담하기"
+    "ctaButton": "문의·상담하기",
+    "repTitle": "대표자 프로필",
+    "repPhotoNote": "사진 준비 중",
+    "repRole": "대표·운영 책임자",
+    "repName": "후쿠다 신고",
+    "repNameRuby": "福田 真悟",
+    "repDesc": "가고시마 출신. 침구사로서 의료·개호 현장에서 오랫동안 일하면서 '여행을 포기한 분들'의 목소리를 여러 번 들었습니다.\n\n'지원만 있으면 더 많은 분이 여행을 즐길 수 있다'는 생각에서 FUKU-TABI를 시작했습니다.",
+    "repCredTitle": "보유 자격",
+    "repCredList": "침구사,개호복지사,개호지원전문원,국내여행업무취급관리자,보육사,의료적케어아동지원,아이돌봄지원원,식품위생책임자",
+    "repLicenseTitle": "여행업 등록",
+    "repLicenseValue": "지역한정여행업 (등록 신청 예정)",
+    "repLicenseNote": "2026년 11월 합동회사 다이후쿠 설립과 동시에 여행업 등록 신청 예정"
   },
   "terms": {
     "text": "FUKU-TABI 이용약관 (개호인용)",
@@ -755,6 +768,31 @@
     "ctaTitle": "먼저 상담해 주세요",
     "ctaDesc": "이동 수단·픽업 지역·차량 상황 등 언제든지 문의해 주세요.",
     "ctaApply": "여행 신청하기",
-    "ctaTours": "투어 보기"
+    "ctaTours": "투어 보기",
+    "staffTitle": "담당 스태프 소개",
+    "staffNote": "사진·이름은 준비가 되는 대로 게재합니다",
+    "staffRolePlaceholder": "복지 택시 드라이버",
+    "staffNamePlaceholder": "이름 (준비 중)",
+    "staffCredPlaceholder": "제2종 면허·복지차량 운전 자격",
+    "staffComment1": "어디든 안전하고 웃음 가득히 모셔다 드리겠습니다.",
+    "staffComment2": "휠체어 이용자도 편안하고 안심되는 이동을.",
+    "staffComment3": "여행의 추억이 쌓이도록 최선을 다해 지원합니다.",
+    "staffPhotoNote": "사진 준비 중"
+  },
+  "pillars": {
+    "title": "4가지 안심 요소",
+    "subtitle": "FUKU-TABI가 '갈 수 있다'를 실현하기 위해 갖춘 4가지 체계",
+    "pill1Title": "여행업 등록",
+    "pill1Desc": "국내여행업무취급관리자 자격 보유 스태프가 운영. 2026년 11월 지역한정여행업 등록을 예정하고 있습니다.",
+    "pill1Link": "운영자 소개",
+    "pill2Title": "전속 개호인 팀",
+    "pill2Desc": "개호 자격과 풍부한 경험을 갖춘 개호인이 재적. 여행자 한 분 한 분의 상태에 맞춘 세심한 지원을 제공합니다.",
+    "pill2Link": "개호인 보기",
+    "pill3Title": "복지 택시와 제휴",
+    "pill3Desc": "휠체어 대응 차량과 유자격 드라이버를 보유한 복지 택시와 전속 제휴. 이동 걱정 없는 여행을 실현합니다.",
+    "pill3Link": "제휴 파트너 보기",
+    "pill4Title": "개호인 육성 프로그램",
+    "pill4Desc": "개호인을 육성하는 독자적인 연수 프로그램을 운영. 질 높은 지원을 지속적으로 제공할 수 있는 체제를 갖추고 있습니다.",
+    "pill4Link": "개호인이 되려면"
   }
 }
