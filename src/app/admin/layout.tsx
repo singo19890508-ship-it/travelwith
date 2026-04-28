@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import AdminNav from "@/components/admin/AdminNav";
 import LogoutButton from "@/components/admin/LogoutButton";
+import AdminMobileHeader from "@/components/admin/AdminMobileHeader";
 
 export const metadata: Metadata = {
   title: "管理画面 | FUKU-TABI",
@@ -15,8 +16,8 @@ export default function AdminLayout({
 }) {
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      {/* サイドバー */}
-      <aside className="w-56 bg-gray-900 text-gray-300 flex flex-col flex-shrink-0">
+      {/* サイドバー（デスクトップのみ） */}
+      <aside className="hidden md:flex w-56 bg-gray-900 text-gray-300 flex-col flex-shrink-0">
         <div className="px-5 py-5 border-b border-gray-700">
           <Link href="/" className="text-white font-bold text-lg tracking-wide">
             FUKU-TABI
@@ -35,8 +36,14 @@ export default function AdminLayout({
         </div>
       </aside>
 
-      {/* メインコンテンツ */}
-      <main className="flex-1 overflow-auto">{children}</main>
+      {/* メインエリア（モバイルヘッダー＋コンテンツ） */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* モバイルヘッダー（スマホのみ） */}
+        <AdminMobileHeader />
+
+        {/* メインコンテンツ */}
+        <main className="flex-1 overflow-auto">{children}</main>
+      </div>
     </div>
   );
 }
