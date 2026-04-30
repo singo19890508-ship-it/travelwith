@@ -66,9 +66,10 @@
     "registerButton": "Ver cómo funciona",
     "applyButtonOld": "Solicitar como viajero",
     "registerButtonOld": "Registrarse como cuidador",
-    "strength1": "Operado por acupunturista y trabajadores de cuidado",
-    "strength2": "Seguro de viaje incluido",
-    "strength3": "Especialista en Kagoshima, agencia de viajes con licencia"
+    "strength1": "Apoyo turístico para usuarios de silla de ruedas",
+    "strength2": "Turismo seguro en Kagoshima",
+    "strength3": "Bienvenidos visitantes internacionales",
+    "strength4": "Viajes a medida a tu destino soñado"
   },
   "serviceIntro": {
     "title": "Quiénes usan nuestro servicio",

@@ -66,9 +66,10 @@
     "registerButton": "이용 방법 보기",
     "applyButtonOld": "여행자로 신청",
     "registerButtonOld": "개호인으로 등록",
-    "strength1": "침구사·개호복지사 운영",
-    "strength2": "여행보험 가입",
-    "strength3": "가고시마 전문·여행업 등록"
+    "strength1": "휠체어 이용자 관광 지원",
+    "strength2": "안심 안전 가고시마 관광",
+    "strength3": "인바운드 관광객 환영",
+    "strength4": "가고 싶은 곳 맞춤 여행"
   },
   "serviceIntro": {
     "title": "이런 분들이 많이 이용합니다",
