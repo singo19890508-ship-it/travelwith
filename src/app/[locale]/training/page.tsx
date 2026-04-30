@@ -429,46 +429,6 @@ export default async function TrainingPage({
             <TrainingRegisterForm />
           </div>
         </section>
-
-        {/* CTA */}
-        <section className="py-20 px-4 bg-sunaha-100 text-center">
-          <div className="max-w-xl mx-auto">
-            <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-tight">
-              人はいつか死ぬ。
-              <br />
-              なら夢を叶えて死のうよ。
-            </p>
-            <p className="text-gray-600 mb-8 text-sm leading-relaxed">
-              諦めさせない。私たちが諦めさせない。
-              <br />
-              あなたが学んだことは、誰かの「行きたい」を「行けた」に変える力になります。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-satsuma-600 text-white font-bold text-base rounded-xl hover:bg-satsuma-700 transition-colors shadow-lg"
-              >
-                受講に興味がある（まず相談する）
-                <svg
-                  className="ml-2 w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </Link>
-            </div>
-            <p className="text-xs text-gray-400 mt-4">
-              初回開催：2026年11月予定　/ 説明会随時受付中
-            </p>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
