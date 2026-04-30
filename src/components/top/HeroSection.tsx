@@ -112,10 +112,6 @@ export default async function HeroSection() {
               <span className="text-wagold-400">{t("titleHighlight")}</span>
             </h1>
 
-            <p className="text-lg text-white leading-relaxed mb-8 whitespace-pre-line drop-shadow font-medium">
-              {t("description")}
-            </p>
-
             {/* 4つの特徴バッジ：常時2列で幅均等 */}
             <div className="grid grid-cols-2 gap-2">
               {strengths.map((s, i) => (
