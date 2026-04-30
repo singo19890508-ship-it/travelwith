@@ -7,8 +7,6 @@ export default async function Header() {
   const t = await getTranslations("header");
 
   const navItems = [
-    { href: "/tours", label: t("tours") },
-    { href: "/caregivers", label: t("caregivers") },
     { href: "/join", label: t("join") },
     { href: "/field", label: t("field") },
     { href: "/faq", label: t("faq") },

@@ -9,8 +9,6 @@ export default function MobileMenu() {
   const t = useTranslations("header");
 
   const navItems = [
-    { href: "/tours", label: t("tours") },
-    { href: "/caregivers", label: t("caregivers") },
     { href: "/join", label: t("join") },
     { href: "/field", label: t("field") },
     { href: "/faq", label: t("faq") },

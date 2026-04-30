@@ -80,11 +80,14 @@ export default async function HeroSection() {
   ];
 
   return (
-    <section className="relative text-white overflow-hidden min-h-[600px]">
-      {/* 背景画像：bg-topで桜島（山頂）を優先表示 */}
+    <section className="relative text-white overflow-hidden min-h-[640px]">
+      {/* 背景画像：25%で空を少し切り桜島ぎりぎり＋人を見せる */}
       <div
-        className="absolute inset-0 bg-cover bg-top bg-no-repeat"
-        style={{ backgroundImage: "url('/images/sakurajima-hero.jpg')" }}
+        className="absolute inset-0 bg-cover bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/sakurajima-hero.jpg')",
+          backgroundPosition: "center 25%",
+        }}
       />
 
       {/* オーバーレイ：左（テキスト）は濃く・右（桜島）は透明で写真を活かす */}
@@ -113,8 +116,8 @@ export default async function HeroSection() {
               {t("description")}
             </p>
 
-            {/* 4つの特徴バッジ */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {/* 4つの特徴バッジ：常時2列で幅均等 */}
+            <div className="grid grid-cols-2 gap-2">
               {strengths.map((s, i) => (
                 <div
                   key={i}
@@ -215,27 +218,6 @@ export default async function HeroSection() {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </Link>
-
-            {/* 小さめの相談CTA */}
-            <Link
-              href="/contact"
-              className="flex items-center justify-center gap-2 text-white/85 hover:text-white text-base font-semibold py-2 transition-colors"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
-              まず無料で相談する
             </Link>
           </div>
         </div>
