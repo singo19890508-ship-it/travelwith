@@ -81,15 +81,15 @@ export default async function HeroSection() {
 
   return (
     <section className="relative text-white overflow-hidden min-h-[600px]">
-      {/* 背景画像 */}
+      {/* 背景画像：bg-topで桜島（山頂）を優先表示 */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-top bg-no-repeat"
         style={{ backgroundImage: "url('/images/sakurajima-hero.jpg')" }}
       />
 
-      {/* オーバーレイ：全体的に濃くして文字可読性を確保 */}
-      <div className="absolute inset-0 bg-gradient-to-r from-satsuma-900/95 via-satsuma-800/85 to-satsuma-900/75" />
-      <div className="absolute inset-0 bg-gradient-to-b from-satsuma-900/40 via-transparent to-satsuma-900/60" />
+      {/* オーバーレイ：左（テキスト）は濃く・右（桜島）は透明で写真を活かす */}
+      <div className="absolute inset-0 bg-gradient-to-r from-satsuma-900/92 via-satsuma-800/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-satsuma-900/30 via-transparent to-satsuma-900/55" />
 
       {/* コンテンツ：左右2カラム */}
       <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28">
