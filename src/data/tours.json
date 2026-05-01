@@ -16,7 +16,7 @@
       "温泉入浴介助（有資格サポーター同行）",
       "空港〜ホテル間リフト付き車両で送迎"
     ],
-    "imageUrl": "",
+    "imageUrl": "/images/tours-ai/tour-sakurajima-onsen.png",
     "status": "準備中",
     "published": true
   },
@@ -37,7 +37,7 @@
       "新鮮な地魚・薩摩料理のランチ付き",
       "往復リフト付き専用車両"
     ],
-    "imageUrl": "",
+    "imageUrl": "/images/tours-ai/tour-ibusuki.png",
     "status": "準備中",
     "published": true
   },
@@ -58,7 +58,7 @@
       "維新ふるさと館（バリアフリー完備）",
       "鹿児島中央駅発着"
     ],
-    "imageUrl": "",
+    "imageUrl": "/images/tours-ai/tour-kagoshima-city.png",
     "status": "準備中",
     "published": true
   },
@@ -79,7 +79,7 @@
       "霧島高原の大自然を車窓から満喫",
       "バリアフリー対応の温泉旅館で昼食"
     ],
-    "imageUrl": "",
+    "imageUrl": "/images/tours-ai/tour-kirishima.png",
     "status": "準備中",
     "published": true
   },
@@ -100,7 +100,7 @@
       "屋久島温泉でゆったり入浴介助",
       "島内リフト付き福祉タクシーで移動"
     ],
-    "imageUrl": "",
+    "imageUrl": "/images/tours-ai/tour-yakushima.png",
     "status": "準備中",
     "published": true
   }
